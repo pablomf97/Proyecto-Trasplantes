@@ -1,0 +1,71 @@
+@import url('rwd.css');
+
+.texto {
+	padding-left:2%;
+	bottom:130px;
+	margin-top:200px;
+	float: right;
+	position: relative;
+}
+
+.tituloPagina{
+	font-family: "Century Gothic";
+	font-variant: small-caps;
+	text-shadow: 1px 1px #666666;
+    font-size: 3rem;
+    font-weight: bold;
+	color: #000000;
+	position: relative;
+	height: 0px;
+	margin-left: 15%;
+	margin-top:-3.8%;
+	
+}
+.paciente_param em{
+	 font-weight: bolder;
+	 font-family: "Book Antiqua";
+	 color:#000000;
+}
+
+.paciente_param{
+	font-size: larger;
+	font-family: "Book Antiqua";
+}
+
+.event{
+	margin-left: 15px;
+}
+
+#botones_fila {
+	float:right; 
+	width: 25%;
+}
+.editar_fila{
+	border:0px;
+	margin:3px;
+	padding:0px;
+	float: right;
+	background-color: Transparent;
+}
+.paciente{
+	clear: both;
+	border-bottom:2px solid #488cf9;
+	border-top: 2px solid #488cf9;
+	background-color: #FFFFFF;
+}
+
+.strongpass {
+	background-color: green
+}
+
+.middlepass {
+	background-color: yellow
+}
+
+.weakpass {
+	background-color: red
+}
+
+.nanpass {
+	background-color: lightyellow
+}

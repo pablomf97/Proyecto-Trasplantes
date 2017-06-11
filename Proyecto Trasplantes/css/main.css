@@ -1,0 +1,411 @@
+@import url('rwd.css');
+
+body {
+	background-color: #66c3bc;
+}
+
+. ::after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 0px) {  
+	
+	#modif{
+		margin-top: 200px;
+	}
+.tabla{
+	margin-top:150px;
+}
+.menu ul{
+	position:relative;
+	background-size:cover;
+	width: 100%;
+	margin-top:-45px;
+	}
+#exito{margin-top:200px; 
+font-size: 20px; 
+text-align: center;
+}
+.sesion{
+ margin-left: 85%;
+ z-index:10000000;
+ top:-97px;
+ position:relative;
+ margin-top:30px;
+}
+ #back{
+	 	margin-left:5%; 
+	 	z-index:10000000; 
+	 	position:relative;
+	    top:-65px;
+}
+.sesion2{
+ margin-left: 73%;
+ z-index:10000000;
+ top:-157px;
+ position:relative;
+ margin-top:30px;
+ color:grey;
+
+}
+
+#d11{
+ width: 100%;
+ height:0;	
+ position:relative;
+}
+#pac{
+	margin-top:180px;
+}
+.texto1{
+	margin-top: 120px;
+}
+.cabecera{
+	background:url("wp2.jpg");
+	background-size:cover;
+	width: 100%;
+    height:100px;
+}
+#logo{
+	margin-left:15%; 
+	width:80px;
+	margin-top: 5px;
+}
+#title{
+	margin-left:30%; 
+	margin-top: -50px;
+    width:300px;
+}
+.menu{
+	background-color: #21302a;
+}
+
+#buscarEventos{
+	margin-left:25%;
+	max-width: 50%;
+	margin-top:200px;
+}
+#sub,#sub2,#sub3{
+	width: 100%;
+	}
+#filtro{
+	height: 40px;
+}
+.registro{
+    margin-left:5%;	
+    margin-top:200px;
+    text-align: center;
+    width:90%;
+}
+}
+.menu li {
+	color: white;
+	background-color: #393636;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+	transition: 0.3s;
+	  font-size: 20px;
+    font-size: 12px;
+    padding-left: 20px;
+}
+#log{
+  	margin-top:200px;
+  	margin-left:25%;
+  	width:50%;
+  }
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+  
+@media (min-width: 1044px) { 
+	  
+	  #modif{
+		margin-top: 50px;
+	}
+	 #back{
+	 	margin-left:12%; 
+	 	z-index:10000000; 
+	 	top: -50px; 
+	 	position:relative;
+	 }
+	 
+	 .tabla{
+	margin-top:50px;
+}
+	 
+	 #exito{margin-top:70px; 
+font-size: 20px; 
+text-align: center;
+}
+  #log{
+  	margin-top:5%;
+  	margin-left:25%;
+  	width:50%;
+    }
+   #pac{
+   	margin-top:30px;
+   }
+  .sesion{
+ margin-left: 85%;
+ z-index:10000000;
+ top:-75px;
+ position:relative;
+ margin-top:25px;
+
+}
+.sesion2{
+ margin-left: 90%;
+ z-index:10000000;
+ top:-140px;
+ position:relative;
+ margin-top:35px;
+ color:grey;
+
+}
+.menu{
+	background-color: #21302a;
+
+    }
+ .menu ul{	
+ 	position:relative;
+	margin-top:40px;
+	margin-left:0px;
+    left:-40px;
+    width: 300px;
+    //height: 100%;
+	}
+	.menu li {
+	    padding-left: 30px;
+	color: white;
+	background-color: #393636;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+	transition: 0.3s;
+	  font-size: 15px;
+}
+
+#logo{
+	margin-left:30%; 
+	width:80px;
+	margin-top: 5px;
+}
+#title{
+	margin-left:40%; 
+	margin-top: -50px;
+    width:300px;
+}
+#buscarEventos{
+	margin-left:25%;
+	max-width: 50%;
+	margin-top:40px;
+}
+#sub,#sub2{
+	width: 100%;
+	}
+	
+#filtro{
+	height: 40px;
+}
+.texto1{
+	margin-top: 10px;
+}
+.registro{
+    margin-left:25%;	
+    margin-top:30px;
+    text-align: center;
+    width:50%;
+}
+}
+ 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 1592px) { 
+  
+  .menu ul{
+	display: inline-block;
+	float:left;
+	margin-top:50px;
+	}
+	  .sesion{
+ margin-left: 85%;
+ z-index:10000000;
+ top:-80px;
+ position:relative;
+ margin-top:30px;
+
+}
+.sesion2{
+ margin-left: 90%;
+ z-index:10000000;
+ top:-140px;
+ position:relative;
+ margin-top:30px;
+ color:grey;
+
+}
+  .menu li {
+    padding-left: 30px;
+	color: white;
+	background-color: #393636;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+	transition: 0.3s;
+	  font-size: 20px;
+   }
+
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 1044px) {
+    #close,#d1 {
+        display: none;
+    }
+    .menu2 {
+    	display:visible;
+    }
+}
+
+@media only screen and (min-width: 1044px) {
+    #close,#d1 {
+        display: visible;
+    }
+    .menu2 {
+    	display: none;
+    }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+.titulo {
+	font-family: "Copperplate Gothic Light";
+	font-variant: small-caps;
+	text-shadow: 2px 1px #666666;
+    font-size: 2.5rem;
+	color: #25aaa0;
+
+}
+
+.division {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	border-bottom: thin solid grey;
+}
+
+.menu ul {
+	display: inline-block;
+	list-style-type: none;
+	font-family: "Book Antiqua";
+	font-variant: small-caps;
+	position:absolute;
+	z-index: 100;
+   
+	background-color: #21302a;
+}
+
+.menu li {
+	color: white;
+	background-color: #21302a;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+	transition: 0.3s;
+
+}
+
+.menu li:hover {
+	background-color: #46C380;
+}
+
+
+footer {
+	text-align: center;
+	margin-top: 10%;
+}
+
+select {
+  border: 1px solid #111;
+  background: white;
+  border-radius:5px;
+  width: 100%;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.texto1 {
+	padding:5%;
+}
+.medico th{
+	background-color:#008B8B;
+	border-collapse:collapse; 
+	border: 1px solid #66c3bc;
+	height: 50px;
+	text-align: center;
+	font-size: 11px;
+	padding:5px;
+	color:#66c3bc;
+}
+.medico tr{
+	border-collapse:collapse; 
+	border: 1px solid #66c3bc;
+	height: 50px;
+	text-align: center;
+		font-size: 10px;
+}
+.medico td{
+	border-collapse:collapse; 
+	border: 1px solid #66c3bc;
+	height: 20px;
+		padding:5px;
+		font-size: 10px;
+		background-color:white;
+}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #21302a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color:#46C380}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #46C380;
+}
