@@ -64,7 +64,7 @@ cerrarConexionBD($conexion);
 				?>
 			</div>
 			<div id="modif" style="margin-left: 25%; width: 50%">
-			<form id="evento" action="accion_crear_evento.php">
+			<form id="evento" action="accion_actualiza_evento.php">
 				
 				<select class="form-control" name="tipoevento">
 					<option value="Operacion" <?php
@@ -118,11 +118,13 @@ cerrarConexionBD($conexion);
 				<br />
 				<input type="text" class="form-control" name="fechafinsuceso" placeholder="dd-mm-aa hh24:mm:ss" value="<?php echo $filas['FECHAFINSUCESO'] ?>"/>
 				<br />
-				<input type="text" class="form-control" name="comentarios"/ placeholder="comentarios" value="<?php echo $filas['COMENTARIOS'] ?>">
+				<input type="text" class="form-control" name="comentarios" placeholder="comentarios" value="<?php echo $filas['COMENTARIOS'] ?>">
 				<br />
 				<input type="text" class="form-control" name="nhc" placeholder="nhc" value="<?php echo $filas['NHC'] ?>""/>
+                <input type="hidden" name="oid_e" value="<?php echo $filas['OID_E']?>"/>
+                <input type="hidden" name="nif" value="<?php consultarNIF($conexion, $filas['NHC'])?>"/>
 				<br />
-				<input type="submit" style="width:100%" class="btn btn-primary" value="Crear"/>
+				<input type="submit" style="width:100%" class="btn btn-primary" value="Modificar"/>
 			</form>
 			</div>
 			<div>

@@ -42,7 +42,6 @@ function consultarTodosEventos2($conexion, $valorFiltro) {
      
 function consultarTodosEventos($conexion, $filtro, $valorFiltro) {
 	try{
-		$nhc;	
 		if($filtro=="nif"){
 			$nhc=consultarNHC($conexion,$valorFiltro);
 			$consulta = "SELECT * FROM EVENTO"
@@ -57,7 +56,7 @@ function consultarTodosEventos($conexion, $filtro, $valorFiltro) {
 		}
 		$stmt->execute();
     	return $stmt;
-	}catch(PDOException $e) {
+	} catch(PDOException $e) {
 		return $e->getMessage();
     }
 	
@@ -103,7 +102,7 @@ function consultarEventosPorTipo($conexion, $nhc, $tipoevento) {
   $stmt -> bindParam(':fechafinsuceso', $fechafinsuceso);
   $stmt -> bindParam(':comentarios', $comentarios);
   $stmt -> execute();
-  return "";
+  return true;
  } catch(PDOException $e) {
   return $e -> getMessage();
  }

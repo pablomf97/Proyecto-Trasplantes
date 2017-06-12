@@ -116,7 +116,7 @@ if(isset($_SESSION['login'])){
 					<?php
 					}
 				?>
-					</form>
+					</table>
 			<?php
 			include_once ("footer.php");
 			?>

@@ -77,7 +77,7 @@ if (isset($_SESSION["errores"])) {
 					<i style="color:red">Los campos obligatorios están marcados con </i><em style="color:red">*</em>
 				</p>
 				<label for="valorFiltro">Buscar paciente: </label>
-				<input class="form-control" type="valorFiltro" name="valorFiltro" id="valorFiltro" placeholder="NIF" value="" required/>
+				<input class="form-control" type="valorFiltro" name="valorFiltro" id="valorFiltro" placeholder="Nombre, NIF o NHC del paciente" value="" required/>
 				<br>
 
                 <label for="filtro">Buscar por: </label>

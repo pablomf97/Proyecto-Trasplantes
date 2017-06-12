@@ -9,11 +9,11 @@ require_once ("gestionarEventos.php");
 
 // Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 if (isset($_SESSION["formulario"])) {
-	$eventoModificado = $_SESSION["formulario"];
+	$actualizaEvento = $_SESSION["formulario"];
 	$_SESSION["formulario"] = null;
 	$_SESSION["errores"] = null;
 } else
-	Header("Location: creacionEventos.php");
+	Header("Location: form_modificar_evento.php");
 
 $conexion = crearConexionBD();
 ?>
@@ -49,17 +49,15 @@ $conexion = crearConexionBD();
 				?>
 			</div>
 			<div>
-				<?php if (modificarEvento($conexion, $eventoModificado["oid_e"], $eventoModificado["tipoevento"], $eventoModificado["fechasuceso"], $eventoModificado["fechafinsuceso"], $eventoModificado["comentarios"], $eventoModificado["nhc"]) === true){?>
-				<h1>Evento creado</h1>
+				<?php if (modificarEvento($conexion, $actualizaEvento["oid_e"], $actualizaEvento["tipoevento"], $actualizaEvento["fechasuceso"], $actualizaEvento["fechafinsuceso"], $actualizaEvento["comentarios"], $actualizaEvento["nhc"]) === true){?>
+				<h1>Evento modificado</h1>
 				<div >	
-			   		Pulsa <a href="about.php">aquí</a> para acceder a la información sobre los desarrolladores.
+			   		Pulsa <a href="ver_eventos_paciente.php?verEventos=<?php $actualizaEvento["nif"]?>">aquí</a> para acceder a la información sobre los desarrolladores.
 				</div>
 		<?php } else { ?>
 				<h1>Error al crear evento.</h1>
 				<div>	
-					Pulsa <a href="creacionEventos.php">aquí</a> para volver al formulario.
-					<?php echo crearEvento($conexion, $nuevoEvento);?>
-					<?php echo "hola";?>
+					Pulsa <a href="form_modificar_evento.php?oid_evento=<?php $actualizaEvento["oid_e"]?>">aquí</a> para volver al formulario.
 				</div>
 		<?php } ?>
 			</div>
