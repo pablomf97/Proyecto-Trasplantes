@@ -14,7 +14,7 @@
 	if(isset($_SESSION["paciente"])){
 		$paciente=$_SESSION["paciente"];
 	}
-	$_SESSION["nuevo"]=TRUE;
+	$_SESSION["nuevo"]=FALSE;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,15 +85,16 @@
 									
 							<?php
 								if (isset($paciente)) { 
-									if(isset($_SESSION["nuevo"]) and isset($paciente)){
-									?><h3>Creando nuevo paciente:</h3>
-									<?php
+									if(isset($_SESSION["nuevo"]) and $_SESSION["nuevo"]===TRUE and isset($paciente)){
+										$temp=TRUE;
+										?><h3>Creando nuevo paciente:</h3>
+										<?php
 									}?>
 									<!-- Editando título -->
-									<h4>Nombre: <input id="NOMBRE" name="NOMBRE" type=<?php if(isset($_SESSION["nuevo"])) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NOMBRE"]; ?>"/><?php if(!isset($_SESSION["nuevo"])) echo($fila["NOMBRE"]); ?>	</h4>
-									<h4>NIF: <input id="NIF" name="NIF" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" type=<?php if(isset($_SESSION["nuevo"])) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NIF"]; ?>"/><?php if(!isset($_SESSION["nuevo"])) echo($fila["NIF"]); ?>	</h4>
-									<h4>Nº Seguridad Social: <input id="NSEGSOC" name="NSEGSOC" type=<?php if(isset($_SESSION["nuevo"])) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NSEGSOC"]; ?>"/> <?php if(!isset($_SESSION["nuevo"])) echo($fila["NSEGSOC"]); ?>	</h4>
-									<h4>Fecha de nacimiento: <input id="FECHANAC" pattern="[0-9]{2}/[0-9]{2}/[0-9]{2}" title="dd/mm/aa" name="FECHANAC" type=<?php if(isset($_SESSION["nuevo"])) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["FECHANAC"]; ?>"/><?php if(!isset($_SESSION["nuevo"])) echo($fila["FECHANAC"]); ?>	</h4>
+									<h4>Nombre: <input id="NOMBRE" name="NOMBRE" type=<?php if(isset($temp)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NOMBRE"]; ?>"/><?php if(!isset($temp)) echo($fila["NOMBRE"]); ?>	</h4>
+									<h4>NIF: <input id="NIF" name="NIF" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" type=<?php if(isset($temp)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NIF"]; ?>"/><?php if(!isset($temp)) echo($fila["NIF"]); ?>	</h4>
+									<h4>Nº Seguridad Social: <input id="NSEGSOC" name="NSEGSOC" type=<?php if(isset($temp)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NSEGSOC"]; ?>"/> <?php if(!isset($temp)) echo($fila["NSEGSOC"]); ?>	</h4>
+									<h4>Fecha de nacimiento: <input id="FECHANAC" pattern="[0-9]{2}/[0-9]{2}/[0-9]{2}" title="dd/mm/aa" name="FECHANAC" type=<?php if(isset($temp)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["FECHANAC"]; ?>"/><?php if(!isset($temp)) echo($fila["FECHANAC"]); ?>	</h4>
 									<h4>Dirección: <input id="DIRECCION" name="DIRECCION" type="text" value="<?php echo $fila["DIRECCION"]; ?>"/>	</h4>
 									<h4>Código postal: <input id="CP" name="CP" type="text" pattern="^[0-9]{5}" title="Cinco dígitos" value="<?php echo $fila["CP"]; ?>"/>	</h4>
 									<h4>Localidad: <input id="LOCALIDAD" name="LOCALIDAD" type="text" value="<?php echo $fila["LOCALIDAD"]; ?>"/>	</h4>
@@ -101,7 +102,9 @@
 									<h4>Teléfono: <input id="TELEFONO" name="TELEFONO" pattern="^[0-9]{9}" title="Nueve dígitos" type="tel" value="<?php echo $fila["TELEFONO"]; ?>"/>	</h4>
 									<h4>Médico de familia: <input id="MEDICOFAMILIA" name="MEDICOFAMILIA" type="text" value="<?php echo $fila["MEDICOFAMILIA"]; ?>"/>	</h4>
 									<h4>Centro de salud: <input id="CENTROSALUD" name="CENTROSALUD" type="text" value="<?php echo $fila["CENTROSALUD"]; ?>"/>	</h4>
-							<?php }	else { 
+								<?php
+								unset($temp);
+							} else { 
 								?>
 									<!-- mostrando título -->
 									<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
