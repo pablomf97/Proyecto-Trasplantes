@@ -8,6 +8,22 @@
 	
 	$conexion=crearConexionBD();
 
+if (!isset($_SESSION['formulario'])) {
+$formulario["numero"] = "";
+$formulario['paciente'] = "";
+$formulario['habitacion'] = "";
+
+$_SESSION['formulario'] = $formulario;
+
+} else {
+    $formulario = $_SESSION['formulario'];
+}
+
+if (isset($_SESSION["errores"])){
+    $errores=$_SESSION["errores"];
+    unset($_SESSION["errores"]);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +66,19 @@
 				?>
 			</div>
 			<div style=" text-align: center"><strong>Crear cama</strong></div>
+            <div>
+                <?php
+                    if(isset($errores) && count($errores)>0){
+                        echo "<div class='error'>";
+                        foreach ($errores as $patata){
+                            echo "<h5>".$patata."</h5>";
+                        }
+                        echo "</div>";
+                    }
+                ?>
+            </div>
 			<div style="margin-left:25%; width:50%;" class=" col-5 col-tab-5 texto">
-				<form id="crearCama" method="get" action="exito_cama_creada.php" onsubmit="return validateForm()">
+				<form id="crearCama" method="get" action="controlador_cama.php" onsubmit="return validateForm()">
 					<fieldset><legend>Datos de la cama</legend>
 						<div><label for="numero">Número de cama:</label>
 							<input id="numero" class="form-control" name="numero" type="number" size="3"/><br>

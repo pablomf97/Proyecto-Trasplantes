@@ -43,6 +43,21 @@ function consultarPaciente($conexion, $filtro, $valorFiltro) {
 	}
 }
 
+function consultarPacienteCama($conexion, $valorFiltro) {
+    try {
+        $consulta = "SELECT COUNT(NIF) FROM PACIENTE" . " WHERE (NIF = :w_nif)";
+        $stmt = $conexion -> prepare($consulta);
+        $stmt -> bindParam(':w_nif', $valorFiltro);
+
+        $stmt -> execute();
+        $result = $stmt -> fetch();
+
+        return $result;
+    } catch(PDOException $e) {
+        return $e -> getMessage();
+    }
+}
+
 function consultarPacientesConFiltro($conexion, $filtro, $valorFiltro) {
 	try {
 
@@ -113,7 +128,7 @@ function consultarNumeroHab($conexion, $valorFiltro) {
 
 function consultarCama($conexion, $valorFiltro) {
 	try {
-		
+
 			$consulta = "SELECT NUMERO FROM CAMA WHERE NIF = :nif";
 			$stmt = $conexion -> prepare($consulta);
 			$stmt -> bindParam(':nif', $valorFiltro);
@@ -123,5 +138,18 @@ function consultarCama($conexion, $valorFiltro) {
 	} catch (PDOException $e) {
 		return $e -> getMessage();
 	}
+}
+
+function consultarCama2($conexion, $valorFiltro) {
+    try {
+        $consulta = "SELECT COUNT(NUMERO) FROM CAMA WHERE NIF = :nif";
+        $stmt = $conexion -> prepare($consulta);
+        $stmt -> bindParam(':nif', $valorFiltro);
+        $stmt -> execute();
+        $result = $stmt -> fetch();
+        return $result;
+    } catch (PDOException $e) {
+        return $e -> getMessage();
+    }
 }
 ?>

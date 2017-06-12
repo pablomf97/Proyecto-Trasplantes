@@ -107,34 +107,6 @@ function consultarEventosPorTipo($conexion, $nhc, $tipoevento) {
   return $e -> getMessage();
  }
 }
- function getOID_H($conexion, $habitacion){
- try{
-$consulta = "SELECT OID_H FROM HABITACION"
-          . " WHERE (NUMERO = :w_numero)";
-        $stmt=$conexion->prepare($consulta);
-      $stmt->bindParam(':w_numero',$habitacion);
-      $stmt->execute();
-      $result = $stmt->fetch();  
-      return $result;
- }catch(PDOException $e) {
-  return $e -> getMessage();
-}
-}
- 
- function crearCama($conexion, $numero, $paciente, $habitacion) {
-    try {
-      $oidh=getOID_H($conexion, $habitacion);
-      $stmt=$conexion->prepare('CALL ASIGNAR_CAMA(:w_numero,
-            :w_nif, :w_oidh');
-      $stmt->bindParam(':w_nif',$cama["paciente"]);
-      $stmt->bindParam(':w_numero',$cama["numero"]);
-      $stmt->bindParam(':w_oidh',$oidh['OID_H']);
-      $stmt->execute();
-      return true;
-    } catch(PDOException $e) {
-      return $e->getMessage();
-      }
-  }
  
  function consultarEvento($conexion, $oid) {
   try{

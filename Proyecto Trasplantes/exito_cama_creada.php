@@ -6,14 +6,15 @@ if(!isset($_SESSION['login'])){
 
 require_once ("gestionBD.php");
 require_once ("gestionarEventos.php");
+require_once ("gestionar_HabitacionCama.php");
 
-// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
-// if (isset($_SESSION["formulario"])) {
-// 
-	// $_SESSION["formulario"] = null;
-	// $_SESSION["errores"] = null;
-// } else
-	// Header("Location: creacionEventos.php");
+ //Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
+ if (isset($_SESSION["formulario"])) {
+     $cama = $_SESSION["formulario"];
+	 $_SESSION["formulario"] = null;
+	 $_SESSION["errores"] = null;
+ } else
+	 Header("Location: creacionEventos.php");
 
 $conexion = crearConexionBD();
 ?>
@@ -49,9 +50,9 @@ $conexion = crearConexionBD();
 				?>
 			</div>
 			<div>
-				<?php if (crearCama($conexion, $_REQUEST["numero"], $_REQUEST["paciente"], $_REQUEST["habitacion"]) === true) {
+				<?php if (crearCama($conexion, $cama["paciente"], $cama["numero"], $cama["habitacion"]) === true) {
 		?>
-				<h1>Evento creado</h1>
+				<h1>Cama creada</h1>
 				<div >	
 			   		Pulsa <a href="about.php">aquí</a> para acceder a la información sobre los desarrolladores.
 				</div>
@@ -60,7 +61,7 @@ $conexion = crearConexionBD();
 				<div>	
 					Pulsa <a href="crear_cama.php">aquí</a> para volver al formulario.
 					<?php 
-					$var = getOID_H($conexion, $_REQUEST["habitacion"]);
+					$var = getOID_H($conexion, $cama["habitacion"]);
 					echo $var["OID_H"];
 					?>
 					
