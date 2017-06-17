@@ -8,9 +8,9 @@
 	require_once("funcionesConsultaPaciente.php");
 	
 	$conexion=crearConexionBD();
-	$dnitemp="23456789A";
+    $nif = $_REQUEST["verEventos"];
 	
-	$fila=consultarPaciente($conexion,$dnitemp);
+	$fila=consultarPaciente($conexion,nif);
 	if(isset($_SESSION["paciente"])){
 		$paciente=$_SESSION["paciente"];
 	}
