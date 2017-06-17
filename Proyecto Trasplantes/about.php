@@ -43,7 +43,7 @@ session_start();
 			</div>
 			<a id="back" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
 
-			<div class="col-10 col-tab-10 texto1">
+			<div class="col-6 col-tab-6 texto1 txtabout">
 				Somos un grupo de estudiantes que ha participado en este proyecto en el que el objetivo es lograr una web para
 				administrar la planta de cirugía Hepato-Bilio-Pancreática y Trasplante Hepático del Hospital Universitario Virgen
 				del Rocío. En ella se podrá administrar a los distintos pacientes, los distintos episodios que les ocurren a éstos,
@@ -52,19 +52,14 @@ session_start();
 				<br>
 
 				En este proyecto han participado:
-				<br>
-				-Antonio Manuel Montaño Aguilera. (Alumno)
-				<br>
-				-Peter John Cutino Mata. (Alumno)
-				<br>
-				-Irene Martín Chavero. (Alumna)
-				<br>
-				-Pablo Martínez Figueroa. (Alumno)
-				<br>
-				-Mario Bizcocho González. (Alumno)
-				<br>
-				-Miguel Ángel Gómez Bravo. (Doctor)
-				<br>
+				<ul>
+                    <li>Antonio Manuel Montaño Aguilera. (Alumno)</li>
+                    <li>Peter John Cutino Mata. (Alumno)</li>
+                    <li>Irene Martín Chavero. (Alumna)</li>
+                    <li>Pablo Martínez Figueroa. (Alumno)</li>
+                    <li>Mario Bizcocho González. (Alumno)</li>
+                    <li>Miguel Ángel Gómez Bravo. (Doctor)</li>
+                </ul>
 			</div>
 			<?php
 			include_once ("footer.php");

@@ -35,13 +35,10 @@
 	    if(!($cama["numero"]>=1 and $cama["numero"]<=2)){
 	        $errores[]="<p>No se puede usar un número de cama distinto de 1 o 2.</p>";
         }
-        if(consultarPacienteCama($conexion,$cama["paciente"])===0){
+        if(consultarPacienteCama($conexion,$cama["paciente"])==0){
             $errores[]="<p>Este paciente no existe.</p>";
         }
-        if(!consultarPacienteCama($conexion,$cama["paciente"])===0){
-            $errores[]="<p>Este paciente es idiota.</p>";
-        }
-        if(count(getOID_H($conexion,$cama["habitacion"]))===0){
+        if(count(getOID_H($conexion,$cama["habitacion"]))==0){
             $errores[]="<p>Esta habitación no existe.</p>";
         }
         if((consultarCama2($conexion,$cama["paciente"]))!=0){

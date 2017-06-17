@@ -54,6 +54,24 @@
 	background-color: #FFFFFF;
 }
 
+.txtabout{
+    font-family:  "Calibri Light", sans-serif;
+    font-weight: 600;
+    font-size: large;
+}
+
+.txtabout ul{
+    padding: 20px;
+}
+
+.txtabout li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: serif;
+    font-size: large;
+    font-weight: 500;
+}
+
 .strongpass {
 	background-color: green
 }
