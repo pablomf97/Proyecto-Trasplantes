@@ -52,7 +52,7 @@ function consultarPacienteCama($conexion, $valorFiltro) {
         $stmt -> execute();
         $result = $stmt -> fetch();
 
-        return $result;
+        return $result[0];
     } catch(PDOException $e) {
         return $e -> getMessage();
     }
@@ -147,7 +147,7 @@ function consultarCama2($conexion, $valorFiltro) {
         $stmt -> bindParam(':nif', $valorFiltro);
         $stmt -> execute();
         $result = $stmt -> fetch();
-        return $result;
+        return $result[0];
     } catch (PDOException $e) {
         return $e -> getMessage();
     }

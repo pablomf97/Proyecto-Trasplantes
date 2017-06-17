@@ -42,7 +42,9 @@
             $errores[]="<p>Esta habitación no existe.</p>";
         }
         if((consultarCama2($conexion,$cama["paciente"]))!=0){
-            $errores[]="<p>Este paciente ya tiene cama asignada.</p>";
+            $cama_asignada=consultarCama($conexion,$cama["paciente"]);
+            $habitacion_cama=
+            $errores[]="<p>Este paciente ya tiene cama asignada: </p>";
         }
         return $errores;
     }

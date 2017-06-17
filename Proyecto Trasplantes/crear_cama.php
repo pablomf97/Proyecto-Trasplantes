@@ -65,7 +65,7 @@ if (isset($_SESSION["errores"])){
 				include_once ("menu.php");
 				?>
 			</div>
-			<div style=" text-align: center"><strong>Crear cama</strong></div>
+			<div style=" text-align: center"><strong>Asignar cama</strong></div>
             <div>
                 <?php
                     if(isset($errores) && count($errores)>0){
