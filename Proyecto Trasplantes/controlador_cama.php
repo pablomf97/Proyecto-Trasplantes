@@ -11,7 +11,7 @@
 
 
     }else
-		Header("Location: crearCama.php");
+		Header("Location: crear_cama.php");
 
 	$_SESSION["formulario"]=$cama;
 	try {

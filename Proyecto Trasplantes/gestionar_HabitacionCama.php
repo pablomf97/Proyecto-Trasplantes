@@ -1,7 +1,7 @@
 <?php
 function crear_habitacion($conexion, $hab) {
 	try {
-		$consulta = "CALL ASIGNAR_HABITACION(TO_NUMBER(:planta), TO_NUMBER(:numero))";
+		$consulta = "CALL ASIGNAR_HABITACION(:planta, :numero)";
 		$stmt =$conexion -> prepare($consulta);
 		$stmt -> bindParam(':planta', $hab["planta"]);
 		$stmt -> bindParam(':numero', $hab["numero"]);

@@ -14,7 +14,7 @@ require_once ("gestionar_HabitacionCama.php");
 	 $_SESSION["formulario"] = null;
 	 $_SESSION["errores"] = null;
  } else
-	 Header("Location: creacionEventos.php");
+	 Header("Location: crear_cama.php");
 
 $conexion = crearConexionBD();
 ?>
