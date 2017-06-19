@@ -51,10 +51,9 @@ cerrarConexionBD($conexion);
 			<div id="d11">
 			<?php 
 					if(isset($_SESSION['login'])){
-						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><strong>Desconectar</strong></p><?php 
+						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
 					} else {
-						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><strong>Conectar</strong></p><?php
-					}
+						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
 				?>
 			</div>
 				<a id="back" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
