@@ -17,7 +17,7 @@
 	try {
         $conexion=crearConexionBD();
         $errores=validarDatosCama($conexion,$cama);
-        cerrarConexionBD();
+        cerrarConexionBD($conexion);
     }catch (PDOException $e){
         $_SESSION["errores"]="<p>Error en validación al entrar en BD.</p>";
         header("Location: crear_cama.php");
