@@ -35,15 +35,15 @@ session_start();
 			<div id="d11">
 		     <?php 
 					if(isset($_SESSION['login'])){
-						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
+						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><strong>Desconectar</strong></p><?php 
 					} else {
-						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
+						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><strong>Conectar</strong></p><?php
+					}
 				?>
-				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
-
 			</div>
+			<a id="back" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
 
-			<div class="col-12 col-tab-12 texto1 txtabout">
+			<div class="col-6 col-tab-6 texto1 txtabout">
 				Somos un grupo de estudiantes que ha participado en este proyecto en el que el objetivo es lograr una web para
 				administrar la planta de cirugía Hepato-Bilio-Pancreática y Trasplante Hepático del Hospital Universitario Virgen
 				del Rocío. En ella se podrá administrar a los distintos pacientes, los distintos episodios que les ocurren a éstos,
