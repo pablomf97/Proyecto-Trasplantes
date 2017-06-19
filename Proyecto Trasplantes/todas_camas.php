@@ -7,10 +7,10 @@
 	
 	require_once("gestionBD.php");
 	require_once("gestionarPacientes.php");
-	
+    require_once("gestionar_HabitacionCama.php");
 	$conexion = crearConexionBD();
-$filas = mostrarTodasLasCamas($conexion);
-cerrarConexionBD($conexion);
+    $filas = mostrarTodasLasCamas($conexion);
+    cerrarConexionBD($conexion);
 ?>
 
 <!DOCTYPE html>
@@ -70,12 +70,16 @@ cerrarConexionBD($conexion);
 						$nif = consultarNombrePacienteSegunNIF($conexion, $fila['NIF']);
 						$oidh = consultarNumeroHab($conexion, $fila['NIF'])
 						?>
-					<tr>
-						<td><?php echo $oidh['NUMERO'];?>-<?php echo $fila['NUMERO']?></td>
-						<td><?php echo $fila['NIF']?></td>
-						<td><?php echo $nif['NOMBRE']?></td>
-					</tr>
-					<?php }?>
+                    <form id="cama" class="cama" action="controlador_borrar_cama.php">
+				        <tr>
+					        <td><?php echo $oidh['NUMERO'];?>-<?php echo $fila['NUMERO'];?></td>
+					        <td><?php echo $fila['NIF'];?></td>
+					        <td><?php echo $nif['NOMBRE']?></td>
+                            <input name="cama" type="hidden" value="<?php echo $fila['NIF'];?>"/>
+                            <input id="borrar" name="submit" type="submit" class="borrar_cama" value="Eliminar"/>
+                        </tr>
+                    </form>
+                    <?php }?>
 				</table>
 			</div>
 			</div>

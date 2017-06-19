@@ -40,4 +40,15 @@ function crearCama($conexion, $paciente, $numero, $habitacion) {
         return $e->getMessage();
     }
 }
+
+function eliminarCama($conexion, $nif) {
+    try {
+        $stmt = $conexion -> prepare('CALL ELIMINAR_CAMA_CON_NIF(:nif)');
+        $stmt -> bindParam(':nif', $nif);
+        $stmt -> execute();
+        return true;
+    } catch (PDOException $e) {
+        return $e -> getMessage();
+    }
+}
 ?>
