@@ -76,11 +76,12 @@
 					        <td><?php echo $fila['NIF'];?></td>
 					        <td><?php echo $nif['NOMBRE']?></td>
                             <input name="cama" type="hidden" value="<?php echo $fila['NIF'];?>"/>
-                            <input id="borrar" name="submit" type="submit" class="borrar_cama" value="Eliminar"/>
+                            <td><input id="borrar" name="submit" type="submit" class="borrar_cama" value="Eliminar"/></td>
                         </tr>
                     </form>
                     <?php }?>
 				</table>
+                <a href="crear_cama.php"><button type="submit" style="width: 100%" class="btn btn-primary">Crear cama</button></a>
 			</div>
 			</div>
 			<?php
