@@ -48,7 +48,7 @@ $conexion = crearConexionBD();
 				include_once ("menu.php");
 				?>
 			</div>
-			<div>
+			<div style="margin-top:60px; text-align:center">
 				<?php if (crearEvento($conexion, $nuevoEvento) === true) {
 		?>
 				<h1>Evento creado</h1>
@@ -59,8 +59,8 @@ $conexion = crearConexionBD();
 				<h1>Error al crear evento.</h1>
 				<div>	
 					Pulsa <a href="creacionEventos.php">aquí</a> para volver al formulario.
-					<?php echo crearEvento($conexion, $nuevoEvento);?>
-					<?php echo "hola";?>
+
+
 				</div>
 		<?php } ?>
 			</div>

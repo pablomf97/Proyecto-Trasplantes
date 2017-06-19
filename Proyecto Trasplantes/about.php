@@ -23,10 +23,10 @@ session_start();
 				include_once ("header.php");
 				?>
 			</div>
-			<div id="d1" style="width: 100%; z-index: 100000; position:relative; background-color:white; padding:1%">
+			<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
 				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
-			</div>
+
 			<div class="menu col-3 col-tab-3">
 				<?php
 				include_once ("menu.php");
@@ -35,15 +35,16 @@ session_start();
 			<div id="d11">
 		     <?php 
 					if(isset($_SESSION['login'])){
-						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><strong>Desconectar</strong></p><?php 
+						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
 					} else {
-						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><strong>Conectar</strong></p><?php
-					}
+						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
 				?>
-			</div>
-			<a id="back" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
 
-			<div class="col-6 col-tab-6 texto1 txtabout">
+			</div>
+			</div>
+
+			<div class="col-12 col-tab-12 texto1 txtabout">
 				Somos un grupo de estudiantes que ha participado en este proyecto en el que el objetivo es lograr una web para
 				administrar la planta de cirugía Hepato-Bilio-Pancreática y Trasplante Hepático del Hospital Universitario Virgen
 				del Rocío. En ella se podrá administrar a los distintos pacientes, los distintos episodios que les ocurren a éstos,

@@ -46,24 +46,26 @@ cerrarConexionBD($conexion);
 				include_once ("header.php");
 				?>
 			</div>
-			<div id="d1" style="width: 100%; z-index: 100000; position:relative; background-color:white; padding:1%">
-				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
-				<?php
-if(isset($_SESSION['login'])){
-?>
-				<a href="logout.php">
-				<button class="sesion">
-					Desconectar
-				</button></a><?php
-				} else {
-			?>
-				<a href="login.php">
-				<button class="sesion">
-					Iniciar sesión
-				</button></a><?php
-				}
-				?>
-			</div>
+			<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
+                        				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
+
+
+                        			<div class="menu col-3 col-tab-3">
+                        				<?php
+                        				include_once ("menu.php");
+                        				?>
+                        			</div>
+                        			<div id="d11">
+                        		     <?php
+                        					if(isset($_SESSION['login'])){
+                        						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
+                        					} else {
+                        						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
+                        				?>
+                        				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+
+                        			</div>
+                        			</div>
 			<div class="menu">
 				<?php
 				include_once ("menu.php");
@@ -77,22 +79,26 @@ if(isset($_SESSION['login'])){
 				}
 			?>
 			<p style="text-align: center; padding-top: 50px">
-				PACIENTE:
+				<strong>PACIENTE:</strong>
 			<?php
 					echo $datosPaciente['NOMBRE'];
 			?>
 			</p>
-			<form action="creacionEventos.php" method="GET">
+			<br><br>
+			<div "style=margin-left:35%; width: 25%;">
+			 <form style="margin-left:42.5%" action="creacionEventos.php" method="GET">
                           <input type="text" id="crearEvento1" name="crearEvento1" value="<?php echo $formulario["filtro"];?>" style="display:none";>
-                          <input type="text" id="crearEvento2" name="crearEvento2" value="<?php echo $formulario["valorFiltro"];?>" display="none">
+                          <input style="width:100px" type="text" id="crearEvento2" name="crearEvento2" value="<?php echo $formulario["valorFiltro"];?>" display="none">
                           <input type="submit" value="Crear evento" />
-            </form>
-			<table style="width:50%; " class="medico">
+             </form>
+             <br><br>
+			 <table style="overflow-x:auto; width: 50%; margin-left:25%" class="medico">
 				<tr>
 				    <th>TIPO DE EVENTO</th>
 				    <th>FECHA DE CREACIÓN</th> 
 				    <th>FECHA DEL EVENTO</th>
 				    <th>FECHA DEL FIN DEL EVENTO</th>
+				    <th>OPCIONES</th>
   				</tr>
   				
 				<?php
@@ -108,15 +114,16 @@ if(isset($_SESSION['login'])){
 						<td><?php echo trim($fila['FECHASUCESO'], '%:');?></td>
 						<td><?php echo $fila['FECHAFINSUCESO'];?></td>
 					    <td><form action="form_modificar_evento.php" method="GET">
-              <input type="text" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
+              <input style="width:20px" type="text" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
               <input type="submit" value="Editar" />
               </form>
-            </td>
+              </td>
 					</tr>
 					<?php
 					}
 				?>
 					</table>
+					</div>
 			<?php
 			include_once ("footer.php");
 			?>
