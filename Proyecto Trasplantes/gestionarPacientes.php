@@ -112,8 +112,22 @@ function consultarOidh($conexion, $valorFiltro) {
 	}
 }
 
+function getOID_H2($conexion, $habitacion){
+    try{
+        $consulta = "SELECT OID_H FROM HABITACION"
+            . " WHERE (NUMERO = :w_numero)";
+        $stmt=$conexion->prepare($consulta);
+        $stmt->bindParam(':w_numero',$habitacion);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result;
+    }catch(PDOException $e) {
+        return $e -> getMessage();
+    }
+}
+
 function consultarCamaNumeroYHabitacion($conexion, $numero, $habitacion){
-    $oidh=consultarOidh($conexion, $habitacion);
+    $oidh=getOID_H2($conexion, $habitacion);
     try {
         $consulta = "SELECT OID_CA FROM CAMA WHERE (NUMERO=:numero AND OID_H=:oidh)";
         $stmt = $conexion -> prepare($consulta);

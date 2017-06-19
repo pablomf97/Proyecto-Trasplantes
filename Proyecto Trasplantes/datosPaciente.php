@@ -8,9 +8,12 @@
 	require_once("funcionesConsultaPaciente.php");
 	
 	$conexion=crearConexionBD();
-    $nif = $_REQUEST["verEventos"];
+	if(isset($_REQUEST["verEventos"]))
+        $nif = $_REQUEST["verEventos"];
+	else
+        header("Location: form_buscar_eventos.php");
 	
-	$fila=consultarPaciente($conexion,nif);
+	$fila=consultarPaciente($conexion,$nif);
 	if(isset($_SESSION["paciente"])){
 		$paciente=$_SESSION["paciente"];
 	}
