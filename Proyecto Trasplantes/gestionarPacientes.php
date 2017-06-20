@@ -127,15 +127,17 @@ function getOID_H2($conexion, $habitacion){
 }
 
 function consultarCamaNumeroYHabitacion($conexion, $numero, $habitacion){
-    $oidh=getOID_H2($conexion, $habitacion);
+    $oidh=getOID_H2($conexion, $habitacion)[0];
     try {
-        $consulta = "SELECT OID_CA FROM CAMA WHERE (NUMERO=:numero AND OID_H=:oidh)";
+        $consulta = "SELECT COUNT(*) AS TOTAL FROM CAMA WHERE NUMERO=:w_numero AND OID_H=:w_oidh";
         $stmt = $conexion -> prepare($consulta);
-        $stmt -> bindParam(':numero', $numero);
-        $stmt -> bindParam(':oidh', $oidh);
+        $numero=(int)$numero;
+        $oidh=(int)$oidh;
+        $stmt -> bindParam(':w_numero', $numero);
+        $stmt -> bindParam(':w_oidh', $oidh);
         $stmt -> execute();
         $result = $stmt -> fetch();
-        return $result;
+        return $result["TOTAL"];
     } catch (PDOException $e) {
         return $e -> getMessage();
     }

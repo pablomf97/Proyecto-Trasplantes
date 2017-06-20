@@ -41,12 +41,10 @@
         if(count(getOID_H($conexion,$cama["habitacion"]))==0){
             $errores[]="<p>Esta habitación no existe.</p>";
         }
-        if(!empty(consultarCamaNumeroYHabitacion($conexion,$cama["numero"],$cama["habitacion"]))){
-            $errores[]="<p>Esta cama ya existe: ".consultarCamaNumeroYHabitacion($conexion,$cama["numero"],$cama["habitacion"]).".</p>";
+        if(consultarCamaNumeroYHabitacion($conexion,$cama["numero"],$cama["habitacion"])>0) {
+            $errores[] = "<p>Esta cama ya existe.</p>";
         }
         if((consultarCama2($conexion,$cama["paciente"]))!=0){
-            $cama_asignada=consultarCama($conexion,$cama["paciente"]);
-            $habitacion_cama=consultarNumeroHab($conexion, $cama_asignada["OID_H"]);
             $errores[]="<p>Este paciente ya tiene cama asignada.</p>";
         }
         return $errores;
