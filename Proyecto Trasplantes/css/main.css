@@ -13,19 +13,13 @@ body {
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 @media (min-width: 0px) {  
-	
-	#modif{
-		margin-top: 200px;
+
+#modif{
+	margin-top: 200px;
 	}
 .tabla{
 	margin-top:150px;
 }
-.menu ul{
-	position:relative;
-	background-size:cover;
-	width: 100%;
-	margin-top:-45px;
-	}
 #exito{margin-top:200px; 
 font-size: 20px; 
 text-align: center;
@@ -80,9 +74,6 @@ text-align: center;
 	margin-top: -50px;
     width:300px;
 }
-.menu{
-	background-color: #21302a;
-}
 
 #buscarEventos{
 	margin-left:25%;
@@ -101,17 +92,6 @@ text-align: center;
     text-align: center;
     width:90%;
 }
-}
-.menu li {
-	color: white;
-	background-color: #393636;
-	padding-top: 5px;
-	padding-bottom: 3px;
-	text-decoration: none;
-	transition: 0.3s;
-	  font-size: 20px;
-    font-size: 12px;
-    padding-left: 20px;
 }
 #log{
   	margin-top:200px;
@@ -166,20 +146,15 @@ text-align: center;
  color:grey;
 
 }
-.menu{
-	background-color: #21302a;
-
-    }
  .menu ul{
  	position:relative;
-	margin-top:60px;
 	margin-left:0px;
     left:-40px;
     width: 300px;
     //height: 100%;
 	}
-	.menu li {
-	    padding-left: 30px;
+.menu li {
+	 padding-left: 30px;
 	color: white;
 	background-color: #393636;
 	padding-top: 5px;
@@ -229,9 +204,8 @@ text-align: center;
   .menu ul{
 	display: inline-block;
 	float:left;
-	margin-top:30px;
 	}
-	  .sesion{
+  .sesion{
  margin-left: 85%;
  z-index:10000000;
  top:-80px;
@@ -268,7 +242,13 @@ text-align: center;
         display: none;
     }
     .menu2 {
-    	display:visible;
+    	display:none;
+    }
+      .menu {
+        	display:none;
+        }
+    .menu3{
+        display:visible;
     }
 }
 
@@ -279,9 +259,64 @@ text-align: center;
     .menu2 {
     	display: none;
     }
+    .menu3{
+        display:none;
+    }
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
+.hide{
+visibility: hidden;
+}
+.menu3{
+    position:relative;
+    top:0px;
+    width:100%;
+}
+
+.menu3 ul{
+	list-style-type: none;
+	font-family: "Book Antiqua";
+	font-variant: small-caps;
+	position:relative;
+	z-index: 100;
+	background-color: #21302a;
+	}
+
+.menu3 li {
+	color: white;
+	background-color: #393636;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+	transition: 0.3s;
+	font-size: 20px;
+    font-size: 12px;
+    padding-left: 20px;
+}
+
+.menu ul {
+	display: inline-block;
+	list-style-type: none;
+	font-family: "Book Antiqua";
+	font-variant: small-caps;
+	position:absolute;
+	z-index: 100;
+	background-color: #21302a;
+}
+
+.menu2 li {
+	color: white;
+	background-color: #21302a;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.menu3 li:hover,.menu li:hover {
+	background-color: #46C380;
+}
 
 .titulo {
 	font-family: "Copperplate Gothic Light";
@@ -297,32 +332,6 @@ text-align: center;
 	margin-bottom: 5px;
 	border-bottom: thin solid grey;
 }
-
-.menu ul {
-	display: inline-block;
-	list-style-type: none;
-	font-family: "Book Antiqua";
-	font-variant: small-caps;
-	position:absolute;
-	z-index: 100;
-   
-	background-color: #21302a;
-}
-
-.menu li {
-	color: white;
-	background-color: #21302a;
-	padding-top: 5px;
-	padding-bottom: 3px;
-	text-decoration: none;
-	transition: 0.3s;
-
-}
-
-.menu li:hover {
-	background-color: #46C380;
-}
-
 
 footer {
 	text-align: center;

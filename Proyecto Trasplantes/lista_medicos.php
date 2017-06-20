@@ -36,15 +36,10 @@ cerrarConexionBD($conexion);
 				include_once ("header.php");
 				?>
 			</div>
-            <div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
+				<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
             				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
 
-            			<div class="menu col-3 col-tab-3">
-            				<?php
-            				include_once ("menu.php");
-            				?>
-            			</div>
             			<div id="d11">
             		     <?php
             					if(isset($_SESSION['login'])){
@@ -55,11 +50,15 @@ cerrarConexionBD($conexion);
             				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
 
             			</div>
-            			</div>					<div class="menu">
+            			</div>
+            <div class="menu">
 				<?php
 				include_once ("menu.php");
 				?>
 			</div>
+			<?php
+			include_once ("menu2.php");
+			?>
 			<div class="medico">
 				<div style="margin:-30px; overflow-x:auto; width: 50%; margin-left: 25%;">
 				<br><br>

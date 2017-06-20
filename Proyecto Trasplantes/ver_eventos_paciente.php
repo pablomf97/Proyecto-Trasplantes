@@ -40,15 +40,10 @@ cerrarConexionBD($conexion);
 				include_once ("header.php");
 				?>
 			</div>
-        <div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
+				<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
             				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
 
-            			<div class="menu col-3 col-tab-3">
-            				<?php
-            				include_once ("menu.php");
-            				?>
-            			</div>
             			<div id="d11">
             		     <?php
             					if(isset($_SESSION['login'])){
@@ -60,12 +55,15 @@ cerrarConexionBD($conexion);
 
             			</div>
             			</div>
-			<div class="menu">
+            <div class="menu">
 				<?php
 				include_once ("menu.php");
 				?>
 			</div>
 			<?php
+			include_once ("menu2.php");
+			?>
+                			<?php
 				if (isset($error)) {
 					echo "<div class=\"error\">";
 					echo "No existen eventos con ese filtro.";

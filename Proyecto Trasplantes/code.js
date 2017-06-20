@@ -5,7 +5,7 @@ $(document).ready(function() {
 	//get width automaticaly
 	$("#close").on("click", function() {
 		//stuff to do on mouseover
-		if ($(window).width() >= 544) {
+		if ($(window).width() >= 270) {
 			if ($(".menu").width() != 0) {
 				$('.menu2').animate({
 					"width" : 0
@@ -16,7 +16,7 @@ $(document).ready(function() {
 			if ($(".menu2").width() == 0) {
 
 				$('.menu2').animate({
-					"width" : 350
+					"width" : 270
 				});
 				$('.menu2').show();
 			} else {

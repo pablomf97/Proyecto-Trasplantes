@@ -7,9 +7,10 @@
 	</head>
 
 	<body>
-		 <div class="menu2">
+		 <div class="menu2" style="height:100%; width:20%; background-color: #21302a; position:absolute; margin-top:0px">
 				<ul>
-					
+
+					<li>----------------Menu----------------</li>
 					<li style="cursor: pointer" onclick="location.href='about.php'">
 						Inicio
 					</li>
@@ -29,6 +30,13 @@
 					<li style="cursor: pointer" onclick="location.href='form_buscar_eventos.php'">
             			Buscar eventos
           			</li>
+          			<li class="hide">-</li>
+                    <li><br/></li>
+                    <li><br/></li>
+                    <li><br/></li>
+                    <li><br/></li>
+                    <li><br/></li>
+                    <li><br/></li>
 
 				</ul>
 		  </div>

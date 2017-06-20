@@ -23,26 +23,29 @@ session_start();
 				include_once ("header.php");
 				?>
 			</div>
-			<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
-				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
+				<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
+            				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
 
-			<div class="menu col-3 col-tab-3">
+            			<div id="d11">
+            		     <?php
+            					if(isset($_SESSION['login'])){
+            						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
+            					} else {
+            						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
+            				?>
+            				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+
+            			</div>
+            			</div>
+            <div class="menu">
 				<?php
 				include_once ("menu.php");
 				?>
 			</div>
-			<div id="d11">
-		     <?php 
-					if(isset($_SESSION['login'])){
-						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
-					} else {
-						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
-				?>
-				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
-
-			</div>
-			</div>
+			<?php
+			include_once ("menu2.php");
+			?>
 
 			<div class="col-12 col-tab-12 texto1 txtabout">
 				Somos un grupo de estudiantes que ha participado en este proyecto en el que el objetivo es lograr una web para

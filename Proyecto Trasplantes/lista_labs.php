@@ -40,11 +40,6 @@ cerrarConexionBD($conexion);
             				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
 
-            			<div class="menu col-3 col-tab-3">
-            				<?php
-            				include_once ("menu.php");
-            				?>
-            			</div>
             			<div id="d11">
             		     <?php
             					if(isset($_SESSION['login'])){
@@ -61,7 +56,9 @@ cerrarConexionBD($conexion);
 				include_once ("menu.php");
 				?>
 			</div>
-			<div class="medico">
+			<?php
+			include_once ("menu2.php");
+			?>			<div class="medico">
 				<div style="margin:-30px; overflow-x:auto; width: 50%; margin-left: 25%;">
 				<br><br>
 				<table style="border-radius:5px; border-collapse: collapse; width: 100%; border: 1px solid black; text-align:left; padding:5px;" class="tabla">

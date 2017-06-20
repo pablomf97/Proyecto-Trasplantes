@@ -43,32 +43,29 @@ if (isset($_SESSION["errores"])) {
 				include_once ("header.php");
 				?>
 			</div>
-			<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
-                        				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
+				<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
+            				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
 
-                        			<div class="menu col-3 col-tab-3">
-                        				<?php
-                        				include_once ("menu.php");
-                        				?>
-                        			</div>
-                        			<div id="d11">
-                        		     <?php
-                        					if(isset($_SESSION['login'])){
-                        						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
-                        					} else {
-                        						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
-                        				?>
-                        				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+            			<div id="d11">
+            		     <?php
+            					if(isset($_SESSION['login'])){
+            						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
+            					} else {
+            						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
+            				?>
+            				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
 
-                        			</div>
-                        			</div>
-             <div id="menucss" class="menu">
+            			</div>
+            			</div>
+            <div class="menu">
 				<?php
 				include_once ("menu.php");
 				?>
 			</div>
-			<div style="color:red; top: 85px; position:relative; margin-left: 58.5%">
+			<?php
+			include_once ("menu2.php");
+			?>	<div style="color:red; top: 85px; position:relative; margin-left: 58.5%">
 			<?php
 			if (isset($errores) && count($errores) > 0) {
 				echo "<div class = error>";
