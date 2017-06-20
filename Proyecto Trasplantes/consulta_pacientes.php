@@ -39,10 +39,10 @@ cerrarConexionBD($conexion);
 	</head>
 
 	<body>
-				<div class="columnas">
-			<div class="cabecera">
-				<?php
-				include_once ("header.php");
+	 <div class="columnas">
+	  <div class="cabecera">
+		<?php
+		 include_once ("header.php");
 				?>
 			</div>
 				<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">

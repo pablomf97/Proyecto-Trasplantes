@@ -42,35 +42,38 @@ if (isset($_SESSION["errores"])){
 <body>
 <div class="columnas">
     <div class="cabecera">
-        <?php
-        include_once ("header.php");
-        ?>
+     <?php
+      include_once ("header.php");
+     ?>
     </div>
-				<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
-            				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
+	<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
+     <a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
-            			<div id="d11">
-            		     <?php
-            					if(isset($_SESSION['login'])){
-            						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
-            					} else {
-            						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
-            				?>
-            				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+     <div id="d11">
+      <?php
+       if(isset($_SESSION['login'])){
+       ?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
+       } else {
+       ?>
+      <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
+       ?>
+      <a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+     </div></div>
 
-            			</div>
-            			</div>
-            <div class="menu">
-				<?php
-				include_once ("menu.php");
-				?>
-			</div>
-			<?php
-			include_once ("menu2.php");
-			?>        		    <main>
+     <div class="menu">
+	  <?php
+	   include_once ("menu.php");
+	  ?>
+	 </div>
+	  <?php
+	   include_once ("menu2.php");
+	  ?>
+	 <main>
     </div>
-    <div style=" text-align: center"><strong>Crear habitación</strong></div>
+     <br><br><br>
+
+    <div style="margin-top:5%; font-size:17px; text-align: center"><strong>Crear habitación</strong></div>
     <div>
         <?php
         if(isset($errores) && count($errores)>0){
@@ -82,7 +85,7 @@ if (isset($_SESSION["errores"])){
         }
         ?>
     </div>
-    <div style="margin-left:25%; width:50%;" class=" col-5 col-tab-5 texto">
+    <div style="margin-top: 160px; margin-left:25%; width:50%;" class=" col-5 col-tab-5 texto">
         <form id="crearHabitacion" method="get" action="accion_habitacion.php" onsubmit="return validateForm()">
             <fieldset><legend>Datos de la habitación</legend>
                 <div><label for="planta">Planta de la habitación:</label>
@@ -93,7 +96,7 @@ if (isset($_SESSION["errores"])){
                 </div>
             </fieldset>
             <br>
-            <div><input type="submit" class="btn btn-info" style="width:100%" value="Enviar" /></div>
+            <div><input type="submit" class="btn btn-primary" style="width:100%" value="Enviar" /></div>
         </form>
     </div>
     <?php

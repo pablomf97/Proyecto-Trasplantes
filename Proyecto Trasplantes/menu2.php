@@ -29,6 +29,9 @@
           					<li style="cursor: pointer" onclick="location.href='form_buscar_eventos.php'">
                       			Buscar eventos
                     			</li>
+                    		<li style="cursor: pointer" onclick="location.href='anyadir_habitacion.php'">
+                                Añadir habitación
+                                 </li>
 
           				</ul>
           		  </div>
