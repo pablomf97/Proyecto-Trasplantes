@@ -34,6 +34,7 @@ $conexion = crearConexionBD();
 		<title>Registro - Proyecto Trasplantes</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<link rel="stylesheet" type="text/css" href="css/about.css" />
+		<link rel="stylesheet" type="text/css" href="css/estilo_pass.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -185,12 +186,25 @@ $conexion = crearConexionBD();
 						<br>
 					</div>
 					<div id="password" style="display: none">
-						<label for="pass">Password:</label>
-						<input id="pass" class="form-control" name="pass" type="password" size="40" required oninput="passwordValidation()"/>
+					<label for="pswd">Password:</label>
+                    <span><input id="pswd"  class="form-control" type="password" size="40" name="pswd" /></span>
 						<br>
-						<label for="confirmpass">Confirmar password:</label>
-						<input class="form-control" name="confirmpass" type="password" size="40" required/>
+					<label for="confirmpass">Confirmar password:</label>
+					<input class="form-control" name="confirmpass" type="password" size="40" required/>
 					</div>
+					<div id="pswd_info">
+                        <h4>La contraseña debe cumplir los siguientes requisitos:</h4>
+                        <ul>
+                          <li id="letter" class="invalid">Por lo menos <strong>una letra</strong>
+                          </li>
+                          <li id="capital" class="invalid">Por lo menos <strong>una mayúscula</strong>
+                          </li>
+                          <li id="number" class="invalid">Por lo menos <strong>un número</strong>
+                          </li>
+                          <li id="length" class="invalid">Por lo menos <strong>8 carácteres</strong>
+                          </li>
+                        </ul>
+                      </div>
 					<br>
 					<div id="submit" style="display:none;">
 						<input id="sub2" class="btn btn-primary" type="submit" value="Enviar" />
