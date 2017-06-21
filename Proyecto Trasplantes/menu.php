@@ -31,9 +31,11 @@
             			Buscar eventos
           			</li>
           			<li style="cursor: pointer" onclick="location.href='anyadir_habitacion.php'">
-          			    Añadir habitación
-          			</li>
-
+                        Añadir habitación
+                    </li>
+                    <li style="cursor: pointer" onclick="location.href='datosPaciente.php'">
+                        Crear paciente
+                    </li>
 				</ul>
 		  </div>
 	</body>

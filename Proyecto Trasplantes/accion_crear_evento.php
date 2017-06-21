@@ -32,7 +32,7 @@ if (count($errores) > 0) {
 	$_SESSION["errores"] = $errores;
 	Header('Location: creacionEventos.php');
 } else
-	// Si todo va bien, vamos a la página de éxito (inserción del usuario en la base de datos)
+	// Si todo va bien, vamos a la página de éxito
 	Header('Location: exito_evento.php');
 
 function validarDatosEvento($conexion, $nuevoEvento) {
