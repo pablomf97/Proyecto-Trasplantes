@@ -95,7 +95,7 @@ cerrarConexionBD($conexion);
 						<td><?php echo $fila['FECHASUCESO'];?></td>
 						<td><?php echo $fila['FECHAFINSUCESO'];?></td>
 						<td><form action="form_modificar_evento.php" method="GET">
-              <input type="text" style="width:50px" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
+              <input type="hidden" style="width:50px" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
               <input type="submit" value="Editar" />
               </form>
             </td>

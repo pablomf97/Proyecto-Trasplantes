@@ -6,6 +6,7 @@
 	
 	require_once("gestionBD.php");
 	require_once("funcionesConsultaPaciente.php");
+	require_once ("gestionarPaciente.php");
 	
 	$conexion=crearConexionBD();
 	if(isset($_REQUEST["verEventos"])) {
@@ -158,6 +159,13 @@
 						</div>
 					</form>
 				</article>
+                <form method="post" action="anyadir_nhc.php">
+                    <?php if(tieneNHC($conexion, $fila["NIF"]) == 0) { ?>
+                        <button id="anyadir_nhc" name="anyadir_nhc" type="submit" value="<?php echo $fila["NIF"]?>">Añadir historia clínica</button>
+                    <?php } else {?>
+                        <p>Este usuario ya tiene historia clínica asignada</p>
+                    <?php } ?>
+                </form>
 			</div>
 			<?php
 			include_once ("footer.php");
