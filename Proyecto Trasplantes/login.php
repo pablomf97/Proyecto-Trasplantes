@@ -67,9 +67,18 @@
 			include_once ("menu2.php");
 			?>
 		    <main>
+<!--		    <div id="d0">
+               <?php
+                 if(isset($_SESSION['login'])){
+                   ?> <a href="logout.php"><img class="sesion3" src="images/on.png" width="40"></img></a><p class="sesion4"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
+                   } else {
+                   ?> <a href="login.php"><img class="sesion3" src="images/on.png" width="40"></img></a><p class="sesion4"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
+                   ?>
+                <a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+            </div> -->
 				<?php
 				if (isset($login)) {
-					echo "<div class=\"error\">";
+					echo "<div style='color:red; text-align:center; margin-top:60px;' class=\"error\">";
 					echo "<p22>Error, problema con la contraseña o puede no existir el usuario</p22>";
 					echo "</div>";
 				}

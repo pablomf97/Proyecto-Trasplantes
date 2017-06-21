@@ -63,7 +63,7 @@ $conexion = crearConexionBD();
 			<?php
 			include_once ("menu2.php");
 			?>
-    <div>
+    <div style="text-align:center; margin-top:30px">
         <?php if (crear_habitacion($conexion, $hab) === true) {
             ?>
             <h1>Habitación creada</h1>

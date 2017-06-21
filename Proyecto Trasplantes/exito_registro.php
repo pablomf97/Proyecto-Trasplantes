@@ -59,7 +59,7 @@ $conexion = crearConexionBD();
 			<?php
 			include_once ("menu2.php");
 			?>
-			<div>
+			<div "text-align:center; margin-top:30px">
 				<?php if (alta_usuario($conexion, $nuevoUsuario) == true) {
 		?>
 				<h1>Hola <?php echo $nuevoUsuario["nom"]; ?>, gracias por registrarte</h1>

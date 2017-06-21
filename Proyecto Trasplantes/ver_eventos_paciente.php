@@ -12,11 +12,16 @@ require_once ("gestionarPacientes.php");
 
 $conexion = crearConexionBD();
 $nif = $_REQUEST["verEventos"];
+
+
+    $_SESSION['datosClave'] = $nif;
+
+
 $nombre = consultarNombrePacienteSegunNIF($conexion, $nif);
 $filas = consultarTodosEventos2($conexion, $nif);
 	
 //$datosPaciente = consultarPaciente($conexion, $_REQUEST["verEventos"]);
-cerrarConexionBD($conexion);
+
 ?>
 
 <!DOCTYPE html>
@@ -75,8 +80,14 @@ cerrarConexionBD($conexion);
 			<?php
 					echo $nombre['NOMBRE'];
 			?>
+			<br><br>
 			</strong></p>
-            <div style="overflow-x:auto; width: 50%; margin-left: 25%; margin-top: 50px">
+			<div style="margin-left:25%; width:50%">
+            			<form style="text-align:center;" method="get" action="datosPaciente.php">
+            			 <button class="btn btn-primary" style="width:100%" type="submit">Datos</button>
+            			</form>
+            			</div>
+            <div style="overflow-x:auto; width: 50%; margin-left: 25%; margin-top: 20px">
 			<table style="width: 100%" class="medico">
 				<tr>
 				    <th>TIPO DE EVENTO</th>
@@ -95,7 +106,7 @@ cerrarConexionBD($conexion);
 						<td><?php echo $fila['FECHASUCESO'];?></td>
 						<td><?php echo $fila['FECHAFINSUCESO'];?></td>
 						<td><form action="form_modificar_evento.php" method="GET">
-              <input type="text" style="width:50px" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
+              <input type="text" style="width:50px; display:none" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
               <input type="submit" value="Editar" />
               </form>
             </td>
@@ -115,5 +126,6 @@ cerrarConexionBD($conexion);
 			include_once ("footer.php");
 			?>
 		</div>
+		<?php cerrarConexionBD($conexion); ?>
 	</body>
 </html>

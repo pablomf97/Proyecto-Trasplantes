@@ -64,7 +64,7 @@ $conexion = crearConexionBD();
 			<?php
 			include_once ("menu2.php");
 			?>
-			<div>
+			<div "text-align:center; margin-top:30px">
 				<?php if (crearCama($conexion, $cama["paciente"], $cama["numero"], $cama["habitacion"]) === true) {
 		?>
 				<h1>Cama creada</h1>

@@ -21,7 +21,15 @@ $filas = consultarTodosEventos($conexion, $formulario["filtro"], $formulario["va
 	if (count($filas)==0){
 		 $error= "error";	
 	}
-$nif = $formulario["valorFiltro"];
+$vf = $formulario["valorFiltro"];
+if(strlen($vf)!=15){
+    $nif = $vf;
+}else{
+    $aux = consultarNIF($conexion, $vf);
+    $nif = $aux['NIF'];
+}
+
+ $_SESSION['datosClave'] = $nif;
 $datosPaciente = consultarPaciente($conexion, $formulario["filtro"], $formulario["valorFiltro"]);
 cerrarConexionBD($conexion);
 ?>
@@ -84,9 +92,15 @@ cerrarConexionBD($conexion);
 					echo $datosPaciente['NOMBRE'];
 			?>
 			</p>
-			<br><br>
+			<br>
+			<br>
+			<div style="margin-left:25%; width:50%">
+			<form style="text-align:center;" method="get" action="datosPaciente.php">
+			 <button class="btn btn-primary" style="width:100%" type="submit">Datos</button>
+			</form>
+			</div>
 			<div>
-             <br><br>
+             <br>
 			 <table style="overflow-x:auto; width: 50%; margin-left:25%" class="medico">
 				<tr>
 				    <th>TIPO DE EVENTO</th>
@@ -109,7 +123,7 @@ cerrarConexionBD($conexion);
 						<td><?php echo trim($fila['FECHASUCESO'], '%:');?></td>
 						<td><?php echo $fila['FECHAFINSUCESO'];?></td>
 					    <td><form action="form_modificar_evento.php" method="GET">
-              <input style="width:20px" type="text" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
+              <input style="width:20px; display:none" type="text" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
               <input type="submit" value="Editar" />
               </form>
               </td>
@@ -119,7 +133,8 @@ cerrarConexionBD($conexion);
 				?>
 					</table>
                 <form action="creacionEventos.php" method="GET" style="overflow-x:auto; width: 50%; margin-left:25%">
-                    <input type="text" id="crearEvento" name="crearEvento" value="<?php echo $nif;?>" style="display:none">
+                    <input type="text" id="crearEvento" name="crearEvento" value="<?php echo $vf;?>" style="display:none;">
+                    <br>
                     <input type="submit" style="width: 100%" class="btn btn-primary" value="Crear evento" />
                 </form>
 					</div>

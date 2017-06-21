@@ -65,7 +65,9 @@ if (isset($_SESSION["errores"])) {
 			</div>
 			<?php
 			include_once ("menu2.php");
-			?>	<div style="color:red; top: 85px; position:relative; margin-left: 58.5%">
+			?>
+
+			<div style="color:red; top: 57px; position:relative; margin-left: 48.5%">
 			<?php
 			if (isset($errores) && count($errores) > 0) {
 				echo "<div class = error>";

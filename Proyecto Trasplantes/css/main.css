@@ -222,6 +222,23 @@ text-align: center;
  color:grey;
 
 }
+ .sesion3{
+ margin-left: 85%;
+ z-index:10000000;
+ top:-40px;
+ position:relative;
+ margin-top:30px;
+
+}
+.sesion4{
+ margin-left: 90%;
+ z-index:10000000;
+ top:-40px;
+ position:relative;
+ margin-top:30px;
+ color:grey;
+
+}
   .menu li {
     padding-left: 30px;
 	color: white;
@@ -241,14 +258,17 @@ text-align: center;
     #close,#d1 {
         display: none;
     }
+    #sesion3,#sesion4{
+        display: visible;
+    }
     .menu2 {
     	display:none;
     }
-      .menu {
+    .menu {
         	display:none;
-        }
+    }
     .menu3{
-        display:visible;
+            display:visible;
     }
 }
 
@@ -261,6 +281,9 @@ text-align: center;
     }
     .menu3{
         display:none;
+    }
+    #sesion3,#sesion4{
+            display: none;
     }
 }
 
@@ -337,7 +360,6 @@ footer {
 	text-align: center;
 	margin-top: 10%;
 }
-
 select {
   border: 1px solid #111;
   background: white;

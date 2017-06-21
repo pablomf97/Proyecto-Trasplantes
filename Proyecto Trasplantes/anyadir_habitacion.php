@@ -58,7 +58,7 @@ if (isset($_SESSION["errores"])){
        ?>
       <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
        ?>
-      <a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+
      </div></div>
 
      <div class="menu">
@@ -85,7 +85,7 @@ if (isset($_SESSION["errores"])){
         }
         ?>
     </div>
-    <div style="margin-top: 160px; margin-left:25%; width:50%;" class=" col-5 col-tab-5 texto">
+    <div style="margin-top: 50px; margin-left:25%; width:50%;" class=" col-5 col-tab-5 texto">
         <form id="crearHabitacion" method="get" action="accion_habitacion.php" onsubmit="return validateForm()">
             <fieldset><legend>Datos de la habitación</legend>
                 <div><label for="planta">Planta de la habitación:</label>

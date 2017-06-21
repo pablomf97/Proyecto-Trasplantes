@@ -14,7 +14,7 @@ $_SESSION["formulario"]=$hab;
 try {
     $conexion=crearConexionBD();
     $errores=validarDatosHabitacion($conexion, $hab);
-    cerrarConexionBD();
+    cerrarConexionBD($conexion);
 }catch (PDOException $e){
     $_SESSION["errores"]="<p>Error en validación al entrar en BD.</p>";
     header("Location: anyadir_habitacion.php");

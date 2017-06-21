@@ -63,7 +63,7 @@ $conexion = crearConexionBD();
 			<?php
 			include_once ("menu2.php");
 			?>
-			<div>
+			<div style="text-align:center; margin-top:30px">
 				<?php if (modificarEvento($conexion, $actualizaEvento["oid_e"], $actualizaEvento["tipoevento"], $actualizaEvento["fechasuceso"], $actualizaEvento["fechafinsuceso"], $actualizaEvento["comentarios"], $actualizaEvento["nhc"]) === true){?>
 				<h1>Evento modificado</h1>
 				<div >	

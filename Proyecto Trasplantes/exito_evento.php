@@ -62,7 +62,7 @@ $conexion = crearConexionBD();
 			</div>
 			<?php
 			include_once ("menu2.php");
-			?>			<div style="margin-top:60px; text-align:center">
+			?>			<div style="text-align:center; margin-top:30px">
 				<?php if (crearEvento($conexion, $nuevoEvento) === true) {
 		?>
 				<h1>Evento creado</h1>

@@ -1,5 +1,6 @@
 
 
+
 $(document).ready(function() {
 	var slider_width = $('.menu').width();
 	//get width automaticaly

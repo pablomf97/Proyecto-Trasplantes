@@ -42,6 +42,7 @@ cerrarConexionBD($conexion);
 	 <div class="columnas">
 	  <div class="cabecera">
 		<?php
+
 		 include_once ("header.php");
 				?>
 			</div>
@@ -107,7 +108,7 @@ cerrarConexionBD($conexion);
 						<td><?php echo $habitacion['NUMERO'];?>-<?php echo $consCama['NUMERO']?></td>
 						<td>
             	 <form action="ver_eventos_paciente.php" method="GET">
-                          <input type="text" id="verEventos" style="width: 55px" name="verEventos" value="<?php echo $fila['NIF'];?>" display="none">
+                          <input type="text" id="verEventos" style="display:none; width: 55px" name="verEventos" value="<?php echo $fila['NIF'];?>" display="none">
                           <input type="submit" value="Ver eventos" />
                         </form>
                         </td>
