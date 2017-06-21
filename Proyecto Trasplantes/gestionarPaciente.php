@@ -38,4 +38,25 @@
 			return $e->getMessage();
 	    }
 	}
+	function anyadir_historia($conexion, $nif, $nhc){
+        try {
+            $stmt = $conexion -> prepare('CALL ASIGNAR_HISTORIA(:nhc, :nif)');
+            $stmt -> bindParam(':nhc', $nhc);
+            $stmt -> bindParam(':nif', $nif);
+            $stmt -> execute();
+            return true;
+        } catch (PDOException $e) {
+            return $e -> getMessage();
+        }
+    }
+    function tieneNHC($conexion, $nif) {
+	    try {
+            $stmt = $conexion -> prepare('SELECT COUNT(*) AS TOTAL FROM HISTORIA_CLINICA WHERE NIF=:nif');
+            $stmt -> bindParam(':nif', $nif);
+            $stmt -> execute();
+            return $stmt -> fetchColumn();
+        }catch (PDOException $exception){
+	        return $exception ->getMessage();
+        }
+    }
 ?>
