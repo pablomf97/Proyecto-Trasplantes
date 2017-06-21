@@ -24,7 +24,7 @@ if (isset($_SESSION["paciente"])) {
         Header("Location: excepcion.php");
     }
     else
-        Header("Location: datosPaciente.php");
+        Header("Location: datosPaciente.php?verEventos=".$paciente["NIF"]);
 }
 else Header("Location: datosPaciente.php"); // Se ha tratado de acceder directamente a este PHP
 ?>

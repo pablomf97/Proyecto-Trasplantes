@@ -17,7 +17,7 @@ if (isset($_REQUEST["NIF"])){
     $_SESSION["paciente"] = $paciente;
 
     if (isset($_REQUEST["editar"])){
-        Header("Location: datosPaciente.php");
+        Header("Location: datosPaciente.php?verEventos=".$paciente["NIF"]);
     }
     else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_paciente.php");
 }

@@ -10,7 +10,9 @@
 	$conexion=crearConexionBD();
 	if(isset($_REQUEST["verEventos"]))
         $nif = $_REQUEST["verEventos"];
-	else
+	elseif (isset($_SESSION["paciente"]))
+        $nif = $_SESSION["paciente"]["NIF"];
+    else
         header("Location: form_buscar_eventos.php");
 	
 	$fila=consultarPaciente($conexion,$nif);
