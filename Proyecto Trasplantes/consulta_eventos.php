@@ -21,6 +21,7 @@ $filas = consultarTodosEventos($conexion, $formulario["filtro"], $formulario["va
 	if (count($filas)==0){
 		 $error= "error";	
 	}
+$nif = $formulario["valorFiltro"];
 $datosPaciente = consultarPaciente($conexion, $formulario["filtro"], $formulario["valorFiltro"]);
 cerrarConexionBD($conexion);
 ?>
@@ -40,59 +41,51 @@ cerrarConexionBD($conexion);
 	</head>
 
 	<body>
-	 <div class="columnas">
-	  <div class="cabecera">
-	   <?php
-		include_once ("header.php");
-	   ?>
-	  </div>
+		<div class="columnas">
+			<div class="cabecera">
+				<?php
+				include_once ("header.php");
+				?>
+			</div>
+				<div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
+            				<a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
 
-	  <div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
-       <a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
-      </div>
-	  <div id="d1" style="padding-top:10px; width: 100%; z-index: 100000; position:relative; background-color:white;">
-       <a id="close" style="margin-left:5%" class="" onClick="javascript:close_clip()"><img src="images/burger.png" width="40" /></a>
-        <div id="d11">
-         <?php
-          if(isset($_SESSION['login'])){
-          ?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
-          } else {
-          ?>
-          <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
-          ?>
-          <a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
-          </div></div>
 
-          <div class="menu">
-		   <?php
-			include_once ("menu.php");
-		   ?>
-		  </div>
-		   <?php
-			include_once ("menu2.php");
-		   ?>
-          <main>
+            			<div id="d11">
+            		     <?php
+            					if(isset($_SESSION['login'])){
+            						?> <a href="logout.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
+            					} else {
+            						?> <a href="login.php"><img class="sesion" src="images/on.png" width="40"></img></a><p class="sesion2"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
+            				?>
+            				<a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+
+            			</div>
+            			</div>
+            <div class="menu">
+				<?php
+				include_once ("menu.php");
+				?>
+			</div>
 			<?php
-			  if (isset($error)) {
-				echo "<div class=\"error\">";
-				echo "No existen eventos con ese filtro.";
-				echo "</div>";
-			  }
+			include_once ("menu2.php");
+			?>
+            		    <main>
+			<?php
+				if (isset($error)) {
+					echo "<div class=\"error\">";
+					echo "No existen eventos con ese filtro.";
+					echo "</div>";
+				}
 			?>
 			<p style="text-align: center; padding-top: 50px">
-			 <strong>PACIENTE:</strong>
+				<strong>PACIENTE:</strong>
 			<?php
-			 echo $datosPaciente['NOMBRE'];
+					echo $datosPaciente['NOMBRE'];
 			?>
 			</p>
 			<br><br>
-
-			<div "style=margin-left:35%; width: 25%;">
-			 <form style="margin-left:42.5%" action="creacionEventos.php" method="GET">
-                          <input type="text" id="crearEvento1" name="crearEvento1" value="<?php echo $formulario["filtro"];?>" style="display:none";>
-                          <input style="width:100px" type="text" id="crearEvento2" name="crearEvento2" value="<?php echo $formulario["valorFiltro"];?>" display="none">
-                          <input type="submit" value="Crear evento" />
-             </form>
+			<div>
              <br><br>
 			 <table style="overflow-x:auto; width: 50%; margin-left:25%" class="medico">
 				<tr>
@@ -125,6 +118,10 @@ cerrarConexionBD($conexion);
 					}
 				?>
 					</table>
+                <form action="creacionEventos.php" method="GET" style="overflow-x:auto; width: 50%; margin-left:25%">
+                    <input type="text" id="crearEvento" name="crearEvento" value="<?php echo $nif;?>" style="display:none">
+                    <input type="submit" style="width: 100%" class="btn btn-primary" value="Crear evento" />
+                </form>
 					</div>
 			<?php
 			include_once ("footer.php");

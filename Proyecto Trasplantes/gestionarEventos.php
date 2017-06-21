@@ -23,6 +23,19 @@ function consultarNHC($conexion, $nif) {
     }
 }
 
+function consultarNHC2($conexion, $nhc) {
+    try{
+        $consulta = "SELECT NHC FROM HISTORIA_CLINICA WHERE (NHC = :nhc)";
+        $stmt=$conexion->prepare($consulta);
+        $stmt->bindParam(':nhc', $nhc);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result;
+    } catch(PDOException $e){
+        return $e -> getMessage();
+    }
+}
+
 function consultarTodosEventos2($conexion, $valorFiltro) {
   try{
       $nhc=consultarNHC($conexion,$valorFiltro);

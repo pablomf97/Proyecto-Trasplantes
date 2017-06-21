@@ -67,7 +67,7 @@ $conexion = crearConexionBD();
 		?>
 				<h1>Evento creado</h1>
 				<div >	
-			   		Pulsa <a href="about.php">aquí</a> para acceder a la información sobre los desarrolladores.
+			   		Pulsa <a href="consulta_eventos.php?filtro=nhc&valorfiltro=<?php $nuevoEvento["nhc"]?>">aquí</a> para acceder a la información sobre los desarrolladores.
 				</div>
 		<?php } else { ?>
 				<h1>Error al crear evento.</h1>

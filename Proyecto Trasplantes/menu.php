@@ -12,7 +12,7 @@
 
 					<li>----------------Menu----------------</li>
 					<li style="cursor: pointer" onclick="location.href='about.php'">
-						Inicio
+                        Inicio
 					</li>
 					<li style="cursor: pointer">
 					<div class="dropdown"> Listado de:

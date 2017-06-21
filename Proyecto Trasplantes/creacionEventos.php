@@ -26,14 +26,10 @@ if (isset($_SESSION["errores"])) {
 }
 
 $conexion = crearConexionBD();
-if(isset($_REQUEST["crearEvento"])){
+if(strlen($_REQUEST["crearEvento"])!=15){
  $nhc = consultarNHC($conexion, $_REQUEST["crearEvento"]);
-}else if(isset($_REQUEST["crearEvento1"])&&(isset($_REQUEST["crearEvento2"]))){
- if($_REQUEST["crearEvento1"]=="nif"){
-  $nhc = consultarNHC($conexion, $_REQUEST["crearEvento2"]);
- }else{
-  $nhc = $_REQUEST["crearEvento2"];
- }
+}else{
+    $nhc = consultarNHC2($conexion, $_REQUEST["crearEvento"]);
 }
 ?>
 <!DOCTYPE html>
@@ -84,6 +80,7 @@ if(isset($_REQUEST["crearEvento"])){
       <p id="" style="text-align:center; margin-top: 50px"><strong>CREA EVENTO</strong></p>
       <div style="margin-top:50px; margin-left: 25%; width: 50%">
       <form id="evento" action="accion_crear_evento.php">
+          Tipo de evento:
         <select style="text-align:center" class="form-control" name="tipoevento">
           <option value="Operacion">Operacion</option>
           <option value="Prueba">Prueba</option>
@@ -96,13 +93,17 @@ if(isset($_REQUEST["crearEvento"])){
           <option value="RecetaMedicacion">RecetaMedicacion</option>
         </select>
 				<br />
+          Fecha de suceso:
 				<input type="text" class="form-control" name="fechasuceso" placeholder="dd-mm-aa hh24:mm:ss"/>
 				<br />
+          Fecha de fin del suceso:
 				<input type="text" class="form-control" name="fechafinsuceso" placeholder="dd-mm-aa hh24:mm:ss"/>
 				<br />
+          Comentarios:
 				<input type="text" class="form-control" name="comentarios"/>
 				<br />
-				<input type="text" class="form-control" name="nhc" value="<?php if(isset($nhc))echo $nhc['NHC']?>"/>
+          NHC del paciente:
+				<input type="text" class="form-control" name="nhc" value="<?php if(isset($nhc))echo $nhc['NHC'];?>"/>
 				<br />
 				<input type="submit" class="btn btn-primary" style="width:100%" value="Crear"/>
 			</form>

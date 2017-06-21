@@ -69,17 +69,12 @@ $conexion = crearConexionBD();
 		?>
 				<h1>Cama creada</h1>
 				<div >	
-			   		Pulsa <a href="about.php">aquí</a> para acceder a la información sobre los desarrolladores.
+			   		Pulsa <a href="todas_camas.php">aquí</a> para volver al listado de todas las camas.
 				</div>
 		<?php } else { ?>
 				<h1>Error al crear cama.</h1>
 				<div>	
 					Pulsa <a href="crear_cama.php">aquí</a> para volver al formulario.
-					<?php 
-					$var = getOID_H($conexion, $cama["habitacion"]);
-					echo $var["OID_H"];
-					?>
-					
 				</div>
 		<?php } ?>
 			</div>

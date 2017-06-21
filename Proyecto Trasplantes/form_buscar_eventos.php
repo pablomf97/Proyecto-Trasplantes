@@ -96,26 +96,11 @@ if (isset($_SESSION["errores"])) {
 						echo "selected";
 					}
 					?>>NIF</option>
-					<option value="provincia"<?php
-					if (isset($formulario['filtro']) && $formulario['filtro'] == "provincia") {
-						echo "selected";
-					}
-					?>>Provincia</option>
 					<option value="nhc" <?php
 					if (isset($formulario['filtro']) && $formulario['filtro']=="nhc"){
 						echo "selected";
 					}
 					?>>NHC</option>
-					<option value="medicoFamilia"<?php
-					if (isset($formulario['filtro']) && $formulario['filtro'] == "medicoFamilia") {
-						echo "selected";
-					}
-					?>>Médico de familia</option>
-					<option value="centroSalud" <?php
-					if (isset($formulario['filtro']) && $formulario['filtro'] == "centroSalud") {
-						echo "selected";
-					}
-					?>>Centro de Salud</option>
                   </select>
 
 				<br>
