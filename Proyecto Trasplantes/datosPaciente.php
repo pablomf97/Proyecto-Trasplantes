@@ -84,7 +84,7 @@
                          ?>
                       <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
                   </div>
-			<div class="texto" id="creap" style="margin-left:25%; margin-top:140px; width:50%">
+			<div class="texto" id="creap" style="margin-left:25%; margin-top:160px; width:50%">
 				<article class="paciente">
 					<form method="post" action="controlador_paciente.php">
 						<div class="fila_paciente" style="position: relative; padding:5px">
@@ -180,11 +180,11 @@
 
 
 							<?php if ((isset($paciente) and ($paciente["NIF"] == $fila["NIF"]))||$_SESSION["nuevo"]==TRUE) { ?>
-									<button id="grabar" name="grabar" type="submit" style="position:relative; left: 85%; top:-690px" class="editar_fila">
+									<button id="grabar" name="grabar" type="submit" style="position:relative; left: 88%; top:-460px" class="editar_fila">
 										<img src="images/save.png" class="editar_fila" width="40px" height="40px" alt="Guardar modificación">
 									</button>
 							<?php } else {?>
-									<button id="editar" name="editar" type="submit" style="position:relative; left: 85%; top:-690px" class="editar_fila">
+									<button id="editar" name="editar" type="submit" style="position:absolute; left: 88%; top:10px" class="editar_fila">
 										<img src="images/edit.png" width="40px" height="40px" class="editar_fila" alt="Editar paciente">
 									</button>
 							<?php } ?>

@@ -85,13 +85,14 @@ $filas = consultarTodosEventos2($conexion, $nif);
 			 }
 			?>
 			<p style="text-align: center; padding-top: 50px;  margin-top:100px">
-			<strong>	PACIENTE:
+			<strong>PACIENTE:
 			<?php
-					echo $nombre['NOMBRE'];
+			  echo $nombre['NOMBRE'];
 			?>
 			<br><br>
 			</strong></p>
 			<div style="margin-left:25%; width:50%;">
+
             			<form style="text-align:center;" method="get" action="datosPaciente.php">
             			 <button class="btn btn-primary" style="width:100%" type="submit">Datos</button>
             			</form>
