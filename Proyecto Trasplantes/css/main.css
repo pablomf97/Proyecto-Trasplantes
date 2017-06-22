@@ -258,9 +258,6 @@ text-align: center;
     #close,#d1 {
         display: none;
     }
-    #sesion3,#sesion4{
-        display: visible;
-    }
     .menu2 {
     	display:none;
     }
@@ -270,21 +267,27 @@ text-align: center;
     .menu3{
             display:visible;
     }
+    .ola{
+           display: block;
+    }
+
 }
 
 @media only screen and (min-width: 1044px) {
     #close,#d1 {
         display: visible;
     }
+
     .menu2 {
     	display: none;
     }
     .menu3{
         display:none;
     }
-    #sesion3,#sesion4{
-            display: none;
+    .ola{
+        display: none;
     }
+
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------*/

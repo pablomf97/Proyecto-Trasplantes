@@ -67,15 +67,16 @@
 			include_once ("menu2.php");
 			?>
 		    <main>
-<!--		    <div id="d0">
+		    <div class="ola">
                <?php
                  if(isset($_SESSION['login'])){
-                   ?> <a href="logout.php"><img class="sesion3" src="images/on.png" width="40"></img></a><p class="sesion4"><a href="logout.php"><strong>Desconectar</strong></a></p><?php
+                   ?> <a style="position:absolute; left:80%; top:30px" href="logout.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>Conectado</strong></a></p><?php
                    } else {
-                   ?> <a href="login.php"><img class="sesion3" src="images/on.png" width="40"></img></a><p class="sesion4"><a href="logout.php"><strong>Conectar</strong></a></p><?php					}
+                   ?> <a style="position:absolute; left:80%; top:30px" href="login.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>No estas conectado</strong></a></p><?php					}
                    ?>
-                <a id="back" style="position:relative; top:-180px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
-            </div> -->
+                <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+            </div>
+
 				<?php
 				if (isset($login)) {
 					echo "<div style='color:red; text-align:center; margin-top:60px;' class=\"error\">";

@@ -3,9 +3,9 @@
 
 $(document).ready(function() {
 	var slider_width = $('.menu').width();
-	//get width automaticaly
+
 	$("#close").on("click", function() {
-		//stuff to do on mouseover
+
 		if ($(window).width() >= 270) {
 			if ($(".menu").width() != 0) {
 				$('.menu2').animate({
@@ -21,7 +21,7 @@ $(document).ready(function() {
 				});
 				$('.menu2').show();
 			} else {
-				if (!$(".menu2").is(':animated'))//perevent double click to double margin
+				if (!$(".menu2").is(':animated'))
 				{
 
 					$('.menu2').animate({
@@ -49,7 +49,7 @@ $(document).ready(function() {
       longitud = true;
     }
 
-    //validate letter
+    //valida letra
     if (pswd.match(/[A-z]/)) {
       $('#letter').removeClass('invalid').addClass('valid');
       minuscula = true;
@@ -58,7 +58,7 @@ $(document).ready(function() {
       minuscula = false;
     }
 
-    //validate capital letter
+    //valida mayúscula
     if (pswd.match(/[A-Z]/)) {
       $('#capital').removeClass('invalid').addClass('valid');
       mayuscula = true;
@@ -67,7 +67,7 @@ $(document).ready(function() {
       mayuscula = false;
     }
 
-    //validate number
+    //valida umero
     if (pswd.match(/\d/)) {
       $('#number').removeClass('invalid').addClass('valid');
       numero = true;

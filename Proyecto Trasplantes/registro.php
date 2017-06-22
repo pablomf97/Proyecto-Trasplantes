@@ -118,6 +118,15 @@ $conexion = crearConexionBD();
 			<?php
 			include_once ("menu2.php");
 			?>
+			 <div class="ola">
+               <?php
+               if(isset($_SESSION['login'])){
+               ?> <a style="position:absolute; left:80%; top:30px" href="logout.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>Conectado</strong></a></p><?php
+               } else {
+               ?> <a style="position:absolute; left:80%; top:30px" href="login.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>No estas conectado</strong></a></p><?php					}
+               ?>
+               <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+             </div>
 			<div class="registro">
 				<form method="get" action="confirmacion_registro.php">
 					<fieldset>
@@ -186,8 +195,8 @@ $conexion = crearConexionBD();
 						<br>
 					</div>
 					<div id="password" style="display: none">
-					<label for="pswd">Password:</label>
-                    <span><input id="pswd"  class="form-control" type="password" size="40" name="pswd" /></span>
+					<label for="pass">Password:</label>
+                    <span><input id="pass" class="form-control" type="password" size="40" name="pass" /></span>
 						<br>
 					<label for="confirmpass">Confirmar password:</label>
 					<input class="form-control" name="confirmpass" type="password" size="40" required/>

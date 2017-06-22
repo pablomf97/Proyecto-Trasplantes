@@ -68,6 +68,15 @@ $filas = consultarTodosEventos2($conexion, $nif);
 	  <?php
 	   include_once ("menu2.php");
 	  ?>
+			 <div class="ola">
+               <?php
+               if(isset($_SESSION['login'])){
+               ?> <a style="position:absolute; left:80%; top:30px" href="logout.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>Conectado</strong></a></p><?php
+               } else {
+               ?> <a style="position:absolute; left:80%; top:30px" href="login.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>No estas conectado</strong></a></p><?php					}
+               ?>
+               <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+             </div>
             <?php
 			 if (isset($error)) {
 				echo "<div class=\"error\">";
@@ -75,14 +84,14 @@ $filas = consultarTodosEventos2($conexion, $nif);
 				echo "</div>";
 			 }
 			?>
-			<p style="text-align: center; padding-top: 50px">
+			<p style="text-align: center; padding-top: 50px;  margin-top:100px">
 			<strong>	PACIENTE:
 			<?php
 					echo $nombre['NOMBRE'];
 			?>
 			<br><br>
 			</strong></p>
-			<div style="margin-left:25%; width:50%">
+			<div style="margin-left:25%; width:50%;">
             			<form style="text-align:center;" method="get" action="datosPaciente.php">
             			 <button class="btn btn-primary" style="width:100%" type="submit">Datos</button>
             			</form>

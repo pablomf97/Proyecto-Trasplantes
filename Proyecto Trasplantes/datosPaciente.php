@@ -6,8 +6,7 @@
 	
 	require_once("gestionBD.php");
 	require_once("funcionesConsultaPaciente.php");
-	require_once ("gestionarPaciente.php");
-	
+
 	$conexion=crearConexionBD();
 	if(isset($_REQUEST["verEventos"])) {
         $nif = $_REQUEST["verEventos"];
@@ -67,45 +66,79 @@
 	  <?php
 	   include_once ("menu2.php");
 	  ?>
-	  	 <div class="tituloPagina">Información de paciente</div>
-			<div class="col-5 col-tab-5 texto">
+	   <div class="ola">
+                           <?php
+                             if(isset($_SESSION['login'])){
+                               ?> <a style="position:absolute; left:80%; top:30px" href="logout.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>Conectado</strong></a></p><?php
+                               } else {
+                               ?> <a style="position:absolute; left:80%; top:30px" href="login.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>No estas conectado</strong></a></p><?php					}
+                               ?>
+                            <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+                        </div>
+	  <div class="ola">
+                     <?php
+                       if(isset($_SESSION['login'])){
+                         ?> <a style="position:absolute; left:80%; top:30px" href="logout.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>Conectado</strong></a></p><?php
+                         } else {
+                         ?> <a style="position:absolute; left:80%; top:30px" href="login.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>No estas conectado</strong></a></p><?php					}
+                         ?>
+                      <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+                  </div>
+			<div class="texto" id="creap" style="margin-left:25%; margin-top:140px; width:50%">
 				<article class="paciente">
 					<form method="post" action="controlador_paciente.php">
-						<div class="fila_paciente">
+						<div class="fila_paciente" style="position: relative; padding:5px">
                             <?php
                             if((isset($_SESSION["nuevo"]) and $_SESSION["nuevo"]==TRUE)||isset($paciente)) {
                                 ?><h3>Creando nuevo paciente:</h3>
                                 <!-- Editando título -->
-                                <h4>Nombre: <input id="NOMBRE" name="NOMBRE"
+
+                                <label for="NOMBRE">Nombre:</label>
+                                <input class="form-control" id="NOMBRE" name="NOMBRE"
                                                    type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NOMBRE"]; ?>"/><?php if (!isset($temp)) echo($fila["NOMBRE"]); ?>
-                                </h4>
-                                <h4>NIF: <input id="NIF" name="NIF" pattern="^[0-9]{8}[A-Z]"
+
+                                <label for="NIF">NIF:</label>
+                                <input class="form-control" id="NIF" name="NIF" pattern="^[0-9]{8}[A-Z]"
                                                 title="Ocho dígitos seguidos de una letra mayúscula"
                                                 type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NIF"]; ?>"/><?php if (!isset($temp)) echo($fila["NIF"]); ?>
-                                </h4>
-                                <h4>Nº Seguridad Social: <input id="NSEGSOC" name="NSEGSOC"
+
+                                 <label for="NSEGSOC">Nº Seguridad Social: </label>
+                                 <input class="form-control" id="NSEGSOC" name="NSEGSOC"
                                                                 type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NSEGSOC"]; ?>"/> <?php if (!isset($temp)) echo($fila["NSEGSOC"]); ?>
-                                </h4>
-                                <h4>Fecha de nacimiento: <input id="FECHANAC" pattern="[0-9]{2}/[0-9]{2}/[0-9]{2}"
+
+                                 <label for="FECHANAC">Fecha de nacimiento:</label>
+                                 <input class="form-control" id="FECHANAC" pattern="[0-9]{2}/[0-9]{2}/[0-9]{2}"
                                                                 title="dd/mm/aa" name="FECHANAC"
                                                                 type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["FECHANAC"]; ?>"/><?php if (!isset($temp)) echo($fila["FECHANAC"]); ?>
-                                </h4>
-                                <h4>Dirección: <input id="DIRECCION" name="DIRECCION" type="text"
-                                                      value="<?php echo $fila["DIRECCION"]; ?>"/></h4>
-                                <h4>Código postal: <input id="CP" name="CP" type="text" pattern="^[0-9]{5}"
+
+                                 <label for="DIRECCION">Dirección:</label>
+                                 <input class="form-control" id="DIRECCION" name="DIRECCION" type="text"
+                                                      value="<?php echo $fila["DIRECCION"]; ?>"/>
+
+                                 <label for="CP">Código postal:</label>
+                                 <input class="form-control" id="CP" name="CP" type="text" pattern="^[0-9]{5}"
                                                           title="Cinco dígitos" value="<?php echo $fila["CP"]; ?>"/>
-                                </h4>
-                                <h4>Localidad: <input id="LOCALIDAD" name="LOCALIDAD" type="text"
-                                                      value="<?php echo $fila["LOCALIDAD"]; ?>"/></h4>
-                                <h4>Provincia: <input id="PROVINCIA" name="PROVINCIA" type="text"
-                                                      value="<?php echo $fila["PROVINCIA"]; ?>"/></h4>
-                                <h4>Teléfono: <input id="TELEFONO" name="TELEFONO" pattern="^[0-9]{9}"
+
+                                 <label for="LOCALIDAD">Localidad:</label>
+                                 <input class="form-control" id="LOCALIDAD" name="LOCALIDAD" type="text"
+                                                      value="<?php echo $fila["LOCALIDAD"]; ?>"/>
+
+                                 <label for="PROVINCIA">Provincia:</label>
+                                 <input class="form-control" id="PROVINCIA" name="PROVINCIA" type="text"
+                                                      value="<?php echo $fila["PROVINCIA"]; ?>"/>
+
+                                 <label for="TELEFONO">Teléfono:</label>
+                                 <input class="form-control" id="TELEFONO" name="TELEFONO" pattern="^[0-9]{9}"
                                                      title="Nueve dígitos" type="tel"
-                                                     value="<?php echo $fila["TELEFONO"]; ?>"/></h4>
-                                <h4>Médico de familia: <input id="MEDICOFAMILIA" name="MEDICOFAMILIA" type="text"
-                                                              value="<?php echo $fila["MEDICOFAMILIA"]; ?>"/></h4>
-                                <h4>Centro de salud: <input id="CENTROSALUD" name="CENTROSALUD" type="text"
-                                                            value="<?php echo $fila["CENTROSALUD"]; ?>"/></h4>
+                                                     value="<?php echo $fila["TELEFONO"]; ?>"/>
+
+                                 <label for="MEDICOFAMILIA">Médico de familia:</label>
+                                 <input class="form-control" id="MEDICOFAMILIA" name="MEDICOFAMILIA" type="text"
+                                                              value="<?php echo $fila["MEDICOFAMILIA"]; ?>"/>
+
+                                 <label for="CENTROSALUD">Provincia:</label>
+                                 <input class="form-control" id="CENTROSALUD" name="CENTROSALUD" type="text"
+                                                            value="<?php echo $fila["CENTROSALUD"]; ?>"/>
                                 <?php
                             }else{
                             ?>
@@ -144,28 +177,21 @@
 									<div class="paciente_param">Médico de familia: <em><?php echo $fila["MEDICOFAMILIA"]; ?></em></div>
 							</div>
                             <?php } ?>
-							
-							<div id="botones_fila">
+
+
 							<?php if ((isset($paciente) and ($paciente["NIF"] == $fila["NIF"]))||$_SESSION["nuevo"]==TRUE) { ?>
-									<button id="grabar" name="grabar" type="submit" class="editar_fila">
-										<img src="images/save.png" class="editar_fila" width="50px" height="50px" alt="Guardar modificación">
+									<button id="grabar" name="grabar" type="submit" style="position:relative; left: 85%; top:-690px" class="editar_fila">
+										<img src="images/save.png" class="editar_fila" width="40px" height="40px" alt="Guardar modificación">
 									</button>
 							<?php } else {?>
-									<button id="editar" name="editar" type="submit" class="editar_fila">
-										<img src="images/edit.png" width="50px" height="50px" class="editar_fila" alt="Editar paciente">
+									<button id="editar" name="editar" type="submit" style="position:relative; left: 85%; top:-690px" class="editar_fila">
+										<img src="images/edit.png" width="40px" height="40px" class="editar_fila" alt="Editar paciente">
 									</button>
 							<?php } ?>
-							</div>
-						</div>
+
+
 					</form>
 				</article>
-                <form method="post" action="anyadir_nhc.php">
-                    <?php if(tieneNHC($conexion, $fila["NIF"]) == 0) { ?>
-                        <button id="anyadir_nhc" name="anyadir_nhc" type="submit" value="<?php echo $fila["NIF"]?>">Añadir historia clínica</button>
-                    <?php } else {?>
-                        <p>Este usuario ya tiene historia clínica asignada</p>
-                    <?php } ?>
-                </form>
 			</div>
 			<?php
 			include_once ("footer.php");

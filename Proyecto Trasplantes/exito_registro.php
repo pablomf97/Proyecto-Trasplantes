@@ -59,7 +59,16 @@ $conexion = crearConexionBD();
 			<?php
 			include_once ("menu2.php");
 			?>
-			<div "text-align:center; margin-top:30px">
+			 <div class="ola">
+               <?php
+               if(isset($_SESSION['login'])){
+               ?> <a style="position:absolute; left:80%; top:30px" href="logout.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>Conectado</strong></a></p><?php
+               } else {
+               ?> <a style="position:absolute; left:80%; top:30px" href="login.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>No estas conectado</strong></a></p><?php					}
+               ?>
+               <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+             </div>
+			<div style="text-align:center; margin-top:30px">
 				<?php if (alta_usuario($conexion, $nuevoUsuario) == true) {
 		?>
 				<h1>Hola <?php echo $nuevoUsuario["nom"]; ?>, gracias por registrarte</h1>

@@ -58,7 +58,17 @@ cerrarConexionBD($conexion);
 			</div>
 			<?php
 			include_once ("menu2.php");
-			?>			<div class="medico">
+			?>
+			 <div class="ola">
+               <?php
+               if(isset($_SESSION['login'])){
+               ?> <a style="position:absolute; left:80%; top:30px" href="logout.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>Conectado</strong></a></p><?php
+               } else {
+               ?> <a style="position:absolute; left:80%; top:30px" href="login.php"><img src="images/on.png" width="40"></img></a><p style="position:absolute; left:55%; top:65px"><a href="logout.php"><strong>No estas conectado</strong></a></p><?php					}
+               ?>
+               <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
+             </div>
+			<div class="medico">
 				<div style="margin:-30px; overflow-x:auto; width: 50%; margin-left: 25%;">
 				<br><br>
 				<table style="border-radius:5px; border-collapse: collapse; width: 100%; border: 1px solid black; text-align:left; padding:5px;" class="tabla">
