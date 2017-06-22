@@ -94,7 +94,8 @@ $filas = consultarTodosEventos2($conexion, $nif);
 			<div style="margin-left:25%; width:50%;">
 
             			<form style="text-align:center;" method="get" action="datosPaciente.php">
-            			 <button class="btn btn-primary" style="width:100%" type="submit">Datos</button>
+                            <input type="hidden" value="<?php echo($nif)?>" name="verEventos">
+            			    <button class="btn btn-primary" style="width:100%" type="submit">Datos</button>
             			</form>
             			</div>
             <div style="overflow-x:auto; width: 50%; margin-left: 25%; margin-top: 20px">
