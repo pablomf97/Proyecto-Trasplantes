@@ -87,7 +87,9 @@ if(strlen($_REQUEST["crearEvento"])!=15){
                             <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
                         </div>
       <p id="" style="text-align:center; margin-top: 50px"><strong>CREA EVENTO</strong></p>
-      <div style="margin-top:50px; margin-left: 25%; width: 50%">
+
+      <div style="margin-top:100px; margin-left: 25%; width: 50%">
+
       <form id="evento" action="accion_crear_evento.php">
           Tipo de evento:
         <select style="text-align:center" class="form-control" name="tipoevento">
@@ -101,6 +103,7 @@ if(strlen($_REQUEST["crearEvento"])!=15){
           <option value="Otro">Otro</option>
           <option value="RecetaMedicacion">RecetaMedicacion</option>
         </select>
+
 				<br />
           Fecha de suceso:
 				<input type="text" class="form-control" name="fechasuceso" placeholder="dd-mm-aa hh24:mm:ss"/>

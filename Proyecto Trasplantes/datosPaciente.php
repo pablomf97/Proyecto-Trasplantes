@@ -185,7 +185,7 @@
 
 
 							<?php if ((isset($paciente) and ($paciente["NIF"] == $fila["NIF"]))||$_SESSION["nuevo"]==TRUE) { ?>
-									<button id="grabar" name="grabar" type="submit" style="position:relative; left: 88%; top:-460px" class="editar_fila">
+									<button id="grabar" name="grabar" type="submit" style="position:absolute; left: 87.5%; top:10px" class="editar_fila">
 										<img src="images/save.png" class="editar_fila" width="40px" height="40px" alt="Guardar modificación">
 									</button>
 							<?php } else {?>
