@@ -33,7 +33,7 @@
                                 Añadir habitación
                                  </li>
                             <li style="cursor: pointer" onclick="location.href='datosPaciente.php'">
-                                Crear paciente
+                                Añadir paciente
                             </li>
           				</ul>
           		  </div>
