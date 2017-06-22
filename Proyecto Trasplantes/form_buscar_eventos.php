@@ -29,6 +29,7 @@ if (isset($_SESSION["errores"])) {
 		<title>Proyecto Trasplantes</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<link rel="stylesheet" type="text/css" href="css/about.css" />
+	    <link rel="stylesheet" type="text/css" href="css/estilo_pass.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -94,6 +95,15 @@ if (isset($_SESSION["errores"])) {
 				<label for="valorFiltro">Buscar paciente: </label>
 				<input class="form-control" type="valorFiltro" name="valorFiltro" id="valorFiltro" placeholder="Nombre, NIF o NHC del paciente" value="" required/>
 				<br>
+<!- pattern="validateDNI(valorFiltro.value)"-->
+
+                <div id="pswd_info2">
+                     <h4>Requisitos de la validación:</h4>
+                         <ul>
+                           <li id="longitudnif" class="invalid">Por lo menos <strong>9 carácteres</strong>
+                           </li>
+                         </ul>
+                 </div>
 
                 <label for="filtro">Buscar por: </label>
                 <select id="filtro" name="filtro">
@@ -118,7 +128,7 @@ if (isset($_SESSION["errores"])) {
 				<br>
 				</fieldset>
 
-				<input id="sub" class="btn btn-primary" type="submit" value="Buscar" />
+				<input id="sub" class="btn btn-primary" type="submit" value="Buscar"/>
 			</form>
 			<?php
 			include_once ("footer.php");
