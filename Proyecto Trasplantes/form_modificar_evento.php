@@ -29,7 +29,7 @@ if (isset($_SESSION["errores"])) {
 $conexion = crearConexionBD();
 
 $filas = consultarEvento($conexion, $_REQUEST["oid_evento"]);
-	
+$nif = consultarNIF($conexion, $filas['NHC']);
 //$datosPaciente = consultarPaciente($conexion, $_REQUEST["verEventos"]);
 cerrarConexionBD($conexion);
 ?>
@@ -148,9 +148,9 @@ cerrarConexionBD($conexion);
 				<br />
 				<input type="text" class="form-control" name="comentarios" placeholder="comentarios" value="<?php echo $filas['COMENTARIOS'] ?>">
 				<br />
-				<input type="text" class="form-control" name="nhc" placeholder="nhc" value="<?php echo $filas['NHC'] ?>""/>
+				<input type="text" class="form-control" name="nhc" placeholder="nhc" value="<?php echo $filas['NHC'] ?>"/>
                 <input type="hidden" name="oid_e" value="<?php echo $filas['OID_E']?>"/>
-                <input type="hidden" name="nif" value="<?php consultarNIF($conexion, $filas['NHC'])?>"/>
+                <input type="hidden" name="nif" value="<?php echo $nif['NIF']?>"/>
 				<br />
 				<input type="submit" style="width:100%" class="btn btn-primary" value="Modificar"/>
 			</form>
