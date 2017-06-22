@@ -95,21 +95,21 @@
 
                                 <label for="NOMBRE">Nombre:</label>
                                 <input class="form-control" id="NOMBRE" name="NOMBRE"
-                                                   type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NOMBRE"]; ?>"/><?php if (!isset($temp)) echo($fila["NOMBRE"]); ?>
+                                                   type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NOMBRE"]; ?>"/><?php if (!isset($temp)) echo($fila["NOMBRE"]."<br>"); ?>
 
                                 <label for="NIF">NIF:</label>
                                 <input class="form-control" id="NIF" name="NIF" pattern="^[0-9]{8}[A-Z]"
                                                 title="Ocho dígitos seguidos de una letra mayúscula"
-                                                type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NIF"]; ?>"/><?php if (!isset($temp)) echo($fila["NIF"]); ?>
+                                                type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NIF"]; ?>"/><?php if (!isset($temp)) echo($fila["NIF"]."<br>"); ?>
 
                                  <label for="NSEGSOC">Nº Seguridad Social: </label>
                                  <input class="form-control" id="NSEGSOC" name="NSEGSOC"
-                                                                type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NSEGSOC"]; ?>"/> <?php if (!isset($temp)) echo($fila["NSEGSOC"]); ?>
+                                                                type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NSEGSOC"]; ?>"/> <?php if (!isset($temp)) echo($fila["NSEGSOC"]."<br>"); ?>
 
                                  <label for="FECHANAC">Fecha de nacimiento:</label>
                                  <input class="form-control" id="FECHANAC" pattern="[0-9]{2}/[0-9]{2}/[0-9]{2}"
                                                                 title="dd/mm/aa" name="FECHANAC"
-                                                                type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["FECHANAC"]; ?>"/><?php if (!isset($temp)) echo($fila["FECHANAC"]); ?>
+                                                                type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["FECHANAC"]; ?>"/><?php if (!isset($temp)) echo($fila["FECHANAC"]."<br>"); ?>
 
                                  <label for="DIRECCION">Dirección:</label>
                                  <input class="form-control" id="DIRECCION" name="DIRECCION" type="text"
