@@ -105,6 +105,7 @@ $filas = consultarTodosEventos2($conexion, $nif);
 				    <th>FECHA DE CREACIÓN</th> 
 				    <th>FECHA DEL EVENTO</th>
 				    <th>FECHA DEL FIN DEL EVENTO</th>
+                    <th>COMENTARIOS</th>
 				    <th>MODIFICAR</th>
   				</tr>
   				
@@ -116,6 +117,7 @@ $filas = consultarTodosEventos2($conexion, $nif);
 						<td><?php echo $fila['FECHACREACION'];?></td>
 						<td><?php echo $fila['FECHASUCESO'];?></td>
 						<td><?php echo $fila['FECHAFINSUCESO'];?></td>
+                        <td><?php echo $fila['COMENTARIOS'];?></td>
 						<td><form action="form_modificar_evento.php" method="GET">
               <input type="text" style="width:50px; display:none" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
               <input type="submit" value="Editar" />

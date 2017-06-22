@@ -95,9 +95,10 @@ cerrarConexionBD($conexion);
 			<br>
 			<br>
 			<div style="margin-left:25%; width:50%">
-			<form style="text-align:center;" method="get" action="datosPaciente.php">
-			 <button class="btn btn-primary" style="width:100%" type="submit">Datos</button>
-			</form>
+                <form style="text-align:center;" method="get" action="datosPaciente.php">
+                    <input type="hidden" value="<?php echo($nif)?>" name="verEventos">
+                    <button class="btn btn-primary" style="width:100%" type="submit">Datos</button>
+                </form>
 			</div>
 			<div>
              <br>
@@ -107,6 +108,7 @@ cerrarConexionBD($conexion);
 				    <th>FECHA DE CREACIÓN</th> 
 				    <th>FECHA DEL EVENTO</th>
 				    <th>FECHA DEL FIN DEL EVENTO</th>
+                    <th>COMENTARIOS</th>
 				    <th>OPCIONES</th>
   				</tr>
   				
@@ -122,6 +124,7 @@ cerrarConexionBD($conexion);
 						<td><?php echo trim($fila['FECHACREACION'], ',{0-9}');?></td>
 						<td><?php echo trim($fila['FECHASUCESO'], '%:');?></td>
 						<td><?php echo $fila['FECHAFINSUCESO'];?></td>
+                        <td><?php echo $fila['COMENTARIOS'];?></td>
 					    <td><form action="form_modificar_evento.php" method="GET">
               <input style="width:20px; display:none" type="text" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
               <input type="submit" value="Editar" />
