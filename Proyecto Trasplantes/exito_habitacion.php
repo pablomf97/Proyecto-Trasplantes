@@ -77,7 +77,7 @@ $conexion = crearConexionBD();
             ?>
             <h1>Habitación creada</h1>
             <div >
-                Pulsa <a href="about.php">aquí</a> para acceder a la información sobre los desarrolladores.
+                Pulsa <a href="anyadir_habitacion.php">aquí</a> para acceder al formulario de crear habitaciones.
             </div>
         <?php } else { ?>
             <h1>Error al crear habitación.</h1>

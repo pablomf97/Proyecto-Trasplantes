@@ -9,6 +9,7 @@ if (isset($_SESSION["formulario"])) {
 	$nuevoEvento["fechafinsuceso"] = $_REQUEST["fechafinsuceso"];
 	$nuevoEvento["comentarios"] = $_REQUEST["comentarios"];
 	$nuevoEvento["nhc"] = $_REQUEST["nhc"];
+	$nuevoEvento["nif"] = $_REQUEST["nif"];
 	
 } else {
 	Header("Location: creacionEventos.php");

@@ -3,6 +3,7 @@ session_start();
 
 require_once ("gestionBD.php");
 require_once ("gestionarEventos.php");
+require_once ("gestionarPacientes.php");
 
 if(!isset($_SESSION['login'])){
 		Header("Location: login.php");
@@ -31,6 +32,7 @@ if(strlen($_REQUEST["crearEvento"])!=15){
 }else{
     $nhc = consultarNHC2($conexion, $_REQUEST["crearEvento"]);
 }
+$nif = consultarNIF($conexion, $nhc['NHC']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,6 +119,7 @@ if(strlen($_REQUEST["crearEvento"])!=15){
           NHC del paciente:
 				<input type="text" class="form-control" name="nhc" value="<?php if(isset($nhc))echo $nhc['NHC'];?>"/>
 				<br />
+          <input type="hidden" name="nif" value="<?php echo $nif['NIF']?>"/>
 				<input type="submit" class="btn btn-primary" style="width:100%" value="Crear"/>
 			</form>
 			<div>

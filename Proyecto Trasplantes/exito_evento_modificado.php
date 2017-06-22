@@ -76,7 +76,7 @@ $conexion = crearConexionBD();
 				<?php if (modificarEvento($conexion, $actualizaEvento["oid_e"], $actualizaEvento["tipoevento"], $actualizaEvento["fechasuceso"], $actualizaEvento["fechafinsuceso"], $actualizaEvento["comentarios"], $actualizaEvento["nhc"]) === true){?>
 				<h1>Evento modificado</h1>
 				<div >	
-                    Pulsa <a href="ver_eventos_paciente.php?verEventos=<?php echo $actualizaEvento["nif"];?>">aquí</a> para acceder a la información sobre los desarrolladores.
+                    Pulsa <a href="ver_eventos_paciente.php?verEventos=<?php echo $actualizaEvento["nif"];?>">aquí</a> para acceder a los eventos del paciente.
                 </div>
 		<?php } else { ?>
 				<h1>Error al crear evento.</h1>
