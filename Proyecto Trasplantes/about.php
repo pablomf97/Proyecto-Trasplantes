@@ -57,8 +57,10 @@ session_start();
 			<div class="col-12 col-tab-12 texto1 txtabout">
 				Somos un grupo de estudiantes que ha participado en este proyecto en el que el objetivo es lograr una web para
 				administrar la planta de cirugía Hepato-Bilio-Pancreática y Trasplante Hepático del Hospital Universitario Virgen
-				del Rocío. En ella se podrá administrar a los distintos pacientes, los distintos episodios que les ocurren a éstos,
-				las medicaciones correspondientes a cada uno de ellos, etc.
+				del Rocío. En ella se podrá administrar a los distintos pacientes, creando nuevos y modificando varios aspectos de éstos,
+                los eventos o episodios que les ocurren a los pacientes, ya sean operaciones, pruebas, recetas, etc., disponiendo de las fechas
+                de los eventos, comentarios sobre éstos, etc. También se dispone de un listado de camas, donde se podrá ver las camas ocupadas,
+                quién la ocupa, eliminar la cama cuando se de el alta, y crear una en un ingreso, previamente creada la habitación.
 				<br><br>
 
 				En este proyecto han participado:
