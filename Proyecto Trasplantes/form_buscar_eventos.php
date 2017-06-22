@@ -95,15 +95,20 @@ if (isset($_SESSION["errores"])) {
 				<label for="valorFiltro">Buscar paciente: </label>
 				<input class="form-control" type="valorFiltro" name="valorFiltro" id="valorFiltro" placeholder="Nombre, NIF o NHC del paciente" value="" required/>
 				<br>
-<!- pattern="validateDNI(valorFiltro.value)"-->
 
-                <div id="pswd_info2">
-                     <h4>Requisitos de la validación:</h4>
-                         <ul>
-                           <li id="longitudnif" class="invalid">Por lo menos <strong>9 carácteres</strong>
-                           </li>
-                         </ul>
-                 </div>
+                <div id="pswd_info">
+                                        <h4>El nif:</h4>
+                                        <ul>
+                                          <li id="letter" class="invalid">Por lo menos <strong>una letra</strong>
+                                          </li>
+                                          <li id="capital" class="invalid">Por lo menos <strong>una mayúscula</strong>
+                                          </li>
+                                          <li id="number" class="invalid">Por lo menos <strong>un número</strong>
+                                          </li>
+                                          <li id="length" class="invalid">Por lo menos <strong>8 carácteres</strong>
+                                          </li>
+                                        </ul>
+                                      </div>
 
                 <label for="filtro">Buscar por: </label>
                 <select id="filtro" name="filtro">
@@ -128,7 +133,7 @@ if (isset($_SESSION["errores"])) {
 				<br>
 				</fieldset>
 
-				<input id="sub" class="btn btn-primary" type="submit" value="Buscar"/>
+				<input id="sub" class="btn btn-primary" type="submit" value="Buscar" />
 			</form>
 			<?php
 			include_once ("footer.php");

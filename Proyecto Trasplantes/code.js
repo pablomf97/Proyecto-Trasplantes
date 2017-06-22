@@ -94,6 +94,7 @@ $(document).ready(function() {
 
   });
 });
+
 /*
 function validateDNI(dni) {
     var numero, let, letra;
