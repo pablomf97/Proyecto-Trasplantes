@@ -196,7 +196,7 @@ $conexion = crearConexionBD();
 					</div>
 					<div id="password" style="display: none">
 					<label for="pass">Password:</label>
-                    <span><input id="pass" class="form-control" type="password" size="40" name="pass" /></span>
+                    <span><input id="pass" class="form-control" type="password" size="40" name="pass" required/></span>
 						<br>
 					<label for="confirmpass">Confirmar password:</label>
 					<input class="form-control" name="confirmpass" type="password" size="40" required/>

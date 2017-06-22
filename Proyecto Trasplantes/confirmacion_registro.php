@@ -2,6 +2,7 @@
 session_start();
 
 require_once ("gestionBD.php");
+require_once ("gestionarUsuarios.php");
 
 // ¿Hemos llegado a esta página mediante el formulario?
 if (isset($_SESSION["formulario"])) {
@@ -59,7 +60,11 @@ function validarDatosUsuario($conexion, $nuevoUsuario) {
 			$errores[] = "<p>El DNI no puede estar vacío.</p>";
 		} else if (!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])) {
 			$errores[] = "<p>El DNI debe tener 8 números, seguidos de una letra mayúscula.</p>";
-		}
+		} else if (validar_dni($nuevoUsuario["nif"]) == 'no valido'){
+		    $errores[] = "<p>El DNI no tiene la letra correcta</p>";
+        } else if (consultarDNIUsuario($conexion, $nuevoUsuario["nif"]) != 0){
+		    $errores[] = "<p>El DNI ya está registrado</p>";
+        }
 	}
 	//******************NOMBRE
 	if ($nuevoUsuario["tipo"] == "Medico" || $nuevoUsuario["tipo"] == "Enfermero") {
@@ -70,7 +75,9 @@ function validarDatosUsuario($conexion, $nuevoUsuario) {
 	//******************USUARIO
 	if (strlen($nuevoUsuario["nick"]) > 25) {
 		$errores[] = "<p>La longitud del nombre de usuario no puede ser mayor de 25 caracteres.</p>";
-	}
+	} else if (consultarNick($conexion, $nuevoUsuario["nick"])>0){
+	    $errores[] = "<p>El usuario ya existe</p>";
+    }
 
 	//******************CONTRASEÑA
 	if (strlen($nuevoUsuario["pass"]) < 8) {

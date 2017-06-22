@@ -22,6 +22,11 @@
         $fila = null;
     }
 
+if (isset($_SESSION["errores"])){
+    $errores=$_SESSION["errores"];
+    unset($_SESSION["errores"]);
+}
+
 	if(isset($_SESSION["paciente"]) && ($_SESSION["paciente"]["NIF"] != null || !isset($_SESSION["paciente"]["NIF"]))){
 		$paciente=$_SESSION["paciente"];
 	}
@@ -89,13 +94,20 @@
                          ?>
                       <a id="back"  style="position:absolute; left:2%; top:30px" onClick="window.history.back()"><img src="images/back.png" width="40" /></a>
                   </div>
+    <?php if(isset($errores) && count($errores)>0){
+    echo "<div class='error'>";
+        foreach ($errores as $patata){
+        echo "<h5>".$patata."</h5>";
+        }
+        echo "</div>";
+    }?>
 			<div class="texto" id="creap" style="margin-left:25%; margin-top:160px; width:50%">
 				<article class="paciente">
 					<form method="post" action="controlador_paciente.php">
 						<div class="fila_paciente" style="position: relative; padding:5px">
                             <?php
                             if((isset($_SESSION["nuevo"]) and $_SESSION["nuevo"]==TRUE)||isset($paciente)) {
-                                ?><h3>Creando nuevo paciente:</h3>
+                                ?><h3>Añadiendo nuevo paciente:</h3>
                                 <!-- Editando título -->
 
                                 <label for="NOMBRE">Nombre:</label>
@@ -108,7 +120,7 @@
                                                 type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php if (isset($_REQUEST["verEventos"])) echo $_REQUEST["verEventos"]; else echo $fila["NIF"]; ?>"/><?php if (!isset($temp)) echo($fila["NIF"]."<br>"); ?>
 
                                  <label for="NSEGSOC">Nº Seguridad Social: </label>
-                                 <input class="form-control" id="NSEGSOC" name="NSEGSOC" required="required" maxlength="12"
+                                 <input class="form-control" id="NSEGSOC" name="NSEGSOC" required="required" pattern="^[0-9]{12}"
                                                                 type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NSEGSOC"]; ?>"/> <?php if (!isset($temp)) echo($fila["NSEGSOC"]."<br>"); ?>
 
                                  <label for="FECHANAC">Fecha de nacimiento:</label>
