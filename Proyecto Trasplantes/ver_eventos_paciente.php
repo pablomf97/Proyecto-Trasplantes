@@ -111,12 +111,16 @@ $filas = consultarTodosEventos2($conexion, $nif);
   				
 				<?php
 					
-					foreach ($filas as $fila) {?>
+					foreach ($filas as $fila) {
+                        $fechac = substr($fila['FECHACREACION'], 0, 17);
+                        $fechas = substr($fila['FECHASUCESO'], 0, 17);
+                        $fechafs = substr($fila['FECHAFINSUCESO'], 0, 17);
+					    ?>
 					<tr>
 					    <td><?php echo $fila['TIPOEVENTO'];?></td>
-						<td><?php echo $fila['FECHACREACION'];?></td>
-						<td><?php echo $fila['FECHASUCESO'];?></td>
-						<td><?php echo $fila['FECHAFINSUCESO'];?></td>
+						<td><?php echo $fechac;?></td>
+						<td><?php echo $fechas;?></td>
+						<td><?php echo $fechafs;?></td>
                         <td><?php echo $fila['COMENTARIOS'];?></td>
 						<td><form action="form_modificar_evento.php" method="GET">
               <input type="text" style="width:50px; display:none" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">

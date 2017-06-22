@@ -89,6 +89,10 @@ cerrarConexionBD($conexion);
              </div>
 			<div id="modif" style="margin-left: 25%; width: 50%">
 			<form id="evento" action="accion_actualiza_evento.php">
+                <?php
+                $fechas = substr($filas['FECHASUCESO'], 0, 17);
+                $fechafs = substr($filas['FECHAFINSUCESO'], 0, 17);
+                ?>
 				
 				<select class="form-control" name="tipoevento">
 					<option value="Operacion" <?php
@@ -138,9 +142,9 @@ cerrarConexionBD($conexion);
 					?>>RecetaMedicacion</option>
 				</select>
 				<br />
-				<input type="text" class="form-control" name="fechasuceso" placeholder="dd-mm-aa hh24:mm:ss" value="<?php echo $filas['FECHASUCESO']; ?>"/>
+				<input type="text" class="form-control" name="fechasuceso" placeholder="dd-mm-aa hh24:mm:ss" value="<?php echo $fechas; ?>"/>
 				<br />
-				<input type="text" class="form-control" name="fechafinsuceso" placeholder="dd-mm-aa hh24:mm:ss" value="<?php echo $filas['FECHAFINSUCESO'] ?>"/>
+				<input type="text" class="form-control" name="fechafinsuceso" placeholder="dd-mm-aa hh24:mm:ss" value="<?php echo $fechafs; ?>"/>
 				<br />
 				<input type="text" class="form-control" name="comentarios" placeholder="comentarios" value="<?php echo $filas['COMENTARIOS'] ?>">
 				<br />

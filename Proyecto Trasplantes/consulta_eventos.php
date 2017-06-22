@@ -118,12 +118,16 @@ cerrarConexionBD($conexion);
 					}else{
 						$filasMostradas = $filas;
 					}
-					foreach ($filasMostradas as $fila) {?>
+					foreach ($filasMostradas as $fila) {
+					    $fechac = substr($fila['FECHACREACION'], 0, 17);
+                        $fechas = substr($fila['FECHASUCESO'], 0, 17);
+                        $fechafs = substr($fila['FECHAFINSUCESO'], 0, 17);
+					    ?>
 					<tr>
 					    <td><?php echo $fila['TIPOEVENTO'];?></td>
-						<td><?php echo trim($fila['FECHACREACION'], ',{0-9}');?></td>
-						<td><?php echo trim($fila['FECHASUCESO'], '%:');?></td>
-						<td><?php echo $fila['FECHAFINSUCESO'];?></td>
+						<td><?php echo $fechac;?></td>
+						<td><?php echo $fechas;?></td>
+						<td><?php echo $fechafs;?></td>
                         <td><?php echo $fila['COMENTARIOS'];?></td>
 					    <td><form action="form_modificar_evento.php" method="GET">
               <input style="width:20px; display:none" type="text" id="oid_evento" name="oid_evento" value="<?php echo $fila['OID_E'];?>">
