@@ -11,13 +11,18 @@
 	if(isset($_REQUEST["verEventos"])) {
         $nif = $_REQUEST["verEventos"];
         $fila = consultarPaciente($conexion, $nif);
-        $_SESSION["nuevo"] = FALSE;
+        if (empty($fila["NIF"]) || !isset($fila["NIF"])) {
+            $_SESSION["nuevo"] = TRUE;
+            $fila = null;
+        }else{
+            $_SESSION["nuevo"] = FALSE;
+        }
     }else {
         $_SESSION["nuevo"] = TRUE;
         $fila = null;
     }
 
-	if(isset($_SESSION["paciente"])){
+	if(isset($_SESSION["paciente"]) && ($_SESSION["paciente"]["NIF"] != null || !isset($_SESSION["paciente"]["NIF"]))){
 		$paciente=$_SESSION["paciente"];
 	}
 ?>
@@ -94,50 +99,50 @@
                                 <!-- Editando título -->
 
                                 <label for="NOMBRE">Nombre:</label>
-                                <input class="form-control" id="NOMBRE" name="NOMBRE"
+                                <input class="form-control" id="NOMBRE" name="NOMBRE" required="required"
                                                    type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NOMBRE"]; ?>"/><?php if (!isset($temp)) echo($fila["NOMBRE"]."<br>"); ?>
 
                                 <label for="NIF">NIF:</label>
-                                <input class="form-control" id="NIF" name="NIF" pattern="^[0-9]{8}[A-Z]"
+                                <input class="form-control" id="NIF" name="NIF" pattern="^[0-9]{8}[A-Z]" required="required"
                                                 title="Ocho dígitos seguidos de una letra mayúscula"
-                                                type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NIF"]; ?>"/><?php if (!isset($temp)) echo($fila["NIF"]."<br>"); ?>
+                                                type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php if (isset($_REQUEST["verEventos"])) echo $_REQUEST["verEventos"]; else echo $fila["NIF"]; ?>"/><?php if (!isset($temp)) echo($fila["NIF"]."<br>"); ?>
 
                                  <label for="NSEGSOC">Nº Seguridad Social: </label>
-                                 <input class="form-control" id="NSEGSOC" name="NSEGSOC"
+                                 <input class="form-control" id="NSEGSOC" name="NSEGSOC" required="required" maxlength="12"
                                                                 type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["NSEGSOC"]; ?>"/> <?php if (!isset($temp)) echo($fila["NSEGSOC"]."<br>"); ?>
 
                                  <label for="FECHANAC">Fecha de nacimiento:</label>
-                                 <input class="form-control" id="FECHANAC" pattern="[0-9]{2}/[0-9]{2}/[0-9]{2}"
+                                 <input class="form-control" id="FECHANAC" pattern="[0-9]{2}/[0-9]{2}/[0-9]{2}" required="required"
                                                                 title="dd/mm/aa" name="FECHANAC"
                                                                 type=<?php if(!isset($paciente)) echo('"text"'); else echo'"hidden"'; ?> value="<?php echo $fila["FECHANAC"]; ?>"/><?php if (!isset($temp)) echo($fila["FECHANAC"]."<br>"); ?>
 
                                  <label for="DIRECCION">Dirección:</label>
-                                 <input class="form-control" id="DIRECCION" name="DIRECCION" type="text"
+                                 <input class="form-control" id="DIRECCION" name="DIRECCION" type="text" required="required"
                                                       value="<?php echo $fila["DIRECCION"]; ?>"/>
 
                                  <label for="CP">Código postal:</label>
-                                 <input class="form-control" id="CP" name="CP" type="text" pattern="^[0-9]{5}"
+                                 <input class="form-control" id="CP" name="CP" type="text" pattern="^[0-9]{5}" required="required"
                                                           title="Cinco dígitos" value="<?php echo $fila["CP"]; ?>"/>
 
                                  <label for="LOCALIDAD">Localidad:</label>
-                                 <input class="form-control" id="LOCALIDAD" name="LOCALIDAD" type="text"
+                                 <input class="form-control" id="LOCALIDAD" name="LOCALIDAD" type="text" required="required"
                                                       value="<?php echo $fila["LOCALIDAD"]; ?>"/>
 
                                  <label for="PROVINCIA">Provincia:</label>
-                                 <input class="form-control" id="PROVINCIA" name="PROVINCIA" type="text"
+                                 <input class="form-control" id="PROVINCIA" name="PROVINCIA" type="text" required="required"
                                                       value="<?php echo $fila["PROVINCIA"]; ?>"/>
 
                                  <label for="TELEFONO">Teléfono:</label>
-                                 <input class="form-control" id="TELEFONO" name="TELEFONO" pattern="^[0-9]{9}"
+                                 <input class="form-control" id="TELEFONO" name="TELEFONO" pattern="^[0-9]{9}" required="required"
                                                      title="Nueve dígitos" type="tel"
                                                      value="<?php echo $fila["TELEFONO"]; ?>"/>
 
                                  <label for="MEDICOFAMILIA">Médico de familia:</label>
-                                 <input class="form-control" id="MEDICOFAMILIA" name="MEDICOFAMILIA" type="text"
+                                 <input class="form-control" id="MEDICOFAMILIA" name="MEDICOFAMILIA" type="text" required="required"
                                                               value="<?php echo $fila["MEDICOFAMILIA"]; ?>"/>
 
-                                 <label for="CENTROSALUD">Provincia:</label>
-                                 <input class="form-control" id="CENTROSALUD" name="CENTROSALUD" type="text"
+                                 <label for="CENTROSALUD">Centro de salud:</label>
+                                 <input class="form-control" id="CENTROSALUD" name="CENTROSALUD" type="text" required="required"
                                                             value="<?php echo $fila["CENTROSALUD"]; ?>"/>
                                 <?php
                             }else{

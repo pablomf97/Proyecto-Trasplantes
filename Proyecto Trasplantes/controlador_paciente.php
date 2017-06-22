@@ -16,6 +16,13 @@ if (isset($_REQUEST["NIF"])){
 
     $_SESSION["paciente"] = $paciente;
 
+    $errores=validarDatosPaciente($paciente);
+    if(count($errores)>0) {
+        $_SESSION["excepcion"] = $errores;
+        $_SESSION["destino"]="datosPaciente.php";
+        header("Location: excepcion.php");
+    }
+
     if (isset($_REQUEST["editar"])){
         Header("Location: datosPaciente.php?verEventos=".$paciente["NIF"]);
     }
@@ -23,5 +30,22 @@ if (isset($_REQUEST["NIF"])){
 }
 else
     Header("Location: datosPaciente.php");
+
+function validarDatosPaciente($paciente){
+    $errores = array();
+    if(empty($paciente["NOMBRE"]) || $paciente["NOMBRE"]=="") {
+        $errores[] = "<p>El nombre no puede estar vacío.</p>";
+    }
+    if(empty($paciente["NIF"]) || $paciente["NIF"]=="") {
+        $errores[] = "<p>El NIF no puede estar vacío.</p>";
+    }
+    if(empty($paciente["NSEGSOC"]) || $paciente["NSEGSOC"]=="") {
+        $errores[] = "<p>El número de seguridad social no puede estar vacío.</p>";
+    }
+    if(empty($paciente["FECHANAC"]) || $paciente["FECHANAC"]=="") {
+        $errores[] = "<p>La fecha de nacimiento no puede estar vacía.</p>";
+    }
+    return $errores;
+}
 
 ?>
