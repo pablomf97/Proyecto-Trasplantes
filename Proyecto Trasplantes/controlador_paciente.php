@@ -77,7 +77,7 @@ function validarDatosPaciente($conexion, $paciente){
         $errores[] = "<p>La fecha de nacimiento no puede estar vacía.</p>";
     }
     else if(!preg_match("/^[0-9]{2}\/[0-9]{2}\/[0-9]{2}$/", $paciente["FECHANAC"])){
-        $errores[] = "<p>La fecha de nacimiento no cumple el formato dd/mm/aa</p>";
+        $errores[] = "<p><L></L>a fecha de nacimiento no cumple el formato dd/mm/aa</p>";
     }
     // CP
     if(!preg_match("/^[0-9]{5}/", $paciente["CP"])){
